@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programmers
+title: Programmers [01]
 subtitle: 프로그래머스 문제풀이
 categories: programmers
 tags: [programmers,stack,Lv.2]
@@ -40,6 +40,7 @@ class Solution {
     }
 }
 ```
+---
 
 문제를 살펴보면 스택을 이용해야 할거같다.
 
