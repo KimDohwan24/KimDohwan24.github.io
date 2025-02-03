@@ -46,6 +46,7 @@ tags: [programmers,Lv.1]
 * 3번의 교환 동안 상빈이는 9(6 + 2 + 1 = 9)병의 콜라를 받았습니다.
 
 > 주어진 솔루션 
+
 ```java
 class Solution {
     public int solution(int a, int b, int n) {
@@ -54,12 +55,14 @@ class Solution {
         return answer;
     }
 }
+
 ```
 ---
 
 문제를 살펴보면 이건 수학을 이용하여 풀어야 할거같다.
 
 ```java
+
 class Solution {
     public int solution(int a, int b, int n) {
         int answer = 0;
@@ -70,6 +73,7 @@ class Solution {
         return answer;
     }
 }
+
 ```
 
 a = 콜라를 받기 위해 마트에 주저야 하는 병 수  
