@@ -6,6 +6,6 @@ categories: Information-Processing-Engineer
 tags: [Information-Processing-Engineer]
 ---
 
-###### 정보처리기사 실기 1과목
-# 소프트웨어 공학 개념
+# 정보처리기사 실기 1과목
+### 소프트웨어 공학 개념
 
