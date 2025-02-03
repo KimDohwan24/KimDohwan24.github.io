@@ -3,7 +3,7 @@ layout: post
 title: Programmers
 subtitle: 프로그래머스 문제풀이
 categories: programmers
-tags: [programmers,stack,Lv.2]
+tags: [programmers,stack,Lv.1]
 ---
 
 ## 프로그래머스 문제풀이
