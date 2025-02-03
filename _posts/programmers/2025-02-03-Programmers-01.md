@@ -65,7 +65,7 @@ class Solution {
     public int[] solution(int[] numbers) {
         int[] answer = new int[numbers.length];
 		Arrays.fill(answer, -1); 
-        // fill 함수는 배열을 for문을 사용하지 않고 초기화 할때 사용한다
+        	// fill 함수는 배열을 for문을 사용하지 않고 초기화 할때 사용한다
 		// { -1,-1,-,1 ~ } 
 
 		Stack<Integer> stack = new Stack<>();
