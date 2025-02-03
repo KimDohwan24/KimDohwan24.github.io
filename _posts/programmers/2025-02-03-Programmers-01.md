@@ -2,7 +2,7 @@
 layout: post
 title: Programmers
 subtitle: 프로그래머스 문제풀이
-categories: programmers
+categories: programmers,java
 tags: [programmers,stack,Lv.2]
 ---
 
