@@ -31,7 +31,7 @@ tags: [programmers,stack,Lv.2]
 9는 뒷 큰수가 없으므로 -1입니다. 1의 뒷 큰수는 5이며, 5와 3의 뒷 큰수는 6입니다. 6과 2는 뒷 큰수가 없으므로 -1입니다. 위 수들을 차례대로 배열에 담으면 [-1, 5, 6, 6, -1, -1]이 됩니다.
 
 
-주어진 솔루션
+> 주어진 솔루션
 ```java
 class Solution {
     public int[] solution(int[] numbers) {
