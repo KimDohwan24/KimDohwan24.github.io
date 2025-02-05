@@ -58,8 +58,15 @@ tags: [programmers,Lv.1]
 * 예제 3번은 모든 구역에 페인트칠을 해야 합니다. 롤러의 길이가 1미터이므로 한 번에 한 구역밖에 칠할 수 없습니다. 구역이 4개이므로 각 구역을 한 번씩만 칠하는 4번이 최소 횟수가 됩니다.
 따라서 4를 return 합니다.
 
-> 주어진 솔루션
-
+> 
+```java
+class Solution {
+    public int[] solution(int[] numbers) {
+        int[] answer = {};
+        return answer;
+    }
+}
+```
 
 ---
 
