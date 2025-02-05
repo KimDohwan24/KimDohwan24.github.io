@@ -51,7 +51,7 @@ tags: [programmers,Lv.0]
 입출력 예 #2
 * code가 "head"로 끝나기 때문에 "Neurosurgery"를 출력합니다.
 
-주어진 솔루션 
+> 주어진 솔루션 
 ```java
 import java.util.Scanner;
 
