@@ -33,6 +33,14 @@ tags: [programmers,Lv.2]
 
 > 주어진 솔루션
 
+```java
+class Solution {
+    public int[] solution(int[] numbers) {
+        int[] answer = {};
+        return answer;
+    }
+}
+```
 ---
 
 문제를 살펴보면 스택을 이용해야 할거같다.
