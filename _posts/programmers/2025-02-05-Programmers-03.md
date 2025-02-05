@@ -43,7 +43,7 @@ tags: [programmers,Lv.0]
 출력 #2
 > Neurosurgery
 
-## 입출력 예 설명
+### 입출력 예 설명
 
 입출력 예 #1
 * code가 "_eye"로 끝나기 때문에 "Ophthalmologyc"를 출력합니다.
