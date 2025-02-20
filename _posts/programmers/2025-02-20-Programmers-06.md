@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programmers [05]
+title: Programmers [06]
 subtitle: 프로그래머스 문제풀이
 categories: programmers
 tags: [programmers,Lv.1]
