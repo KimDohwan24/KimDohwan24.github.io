@@ -326,7 +326,6 @@ jQuery란? 누군가가 만들어 놓은 라이브러리 ( javascript를 보다 
 
 </html>
 ```
-![alt text](image.png)
 
 ## Spartaflix 
 ```html
@@ -543,4 +542,3 @@ jQuery란? 누군가가 만들어 놓은 라이브러리 ( javascript를 보다 
 
 </html>
 ```
-![alt text](image-1.png)
