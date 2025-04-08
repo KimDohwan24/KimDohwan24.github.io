@@ -311,5 +311,3 @@ docs.forEach((doc) => {
 
 </html>
 ```
-
-![poster](image.png)
