@@ -133,6 +133,32 @@ jQuery란? 누군가가 만들어 놓은 라이브러리 ( javascript를 보다 
 
 </html>
 ```
+## 리눅스 명령어
+
+---
+pwd : 현재 폴더 보여줘
+ls : 현재 폴더 속을 보여줘
+ls -a : 현재 폴더 속 모든 것(숨겨진 파일 포함)을 보여줘
+cd 폴더명 : 폴더명으로 이동
+mkdir 폴더명 : 현재 경로에 새 폴더 생성
+touch 파일명 : 현재 경로에 새 파일 생성. (파일을 생성과 파일의 날짜, 시간을 현재로 변경) 
+
+## Git
+Git : 버전 관리 도구 / 코드 변경점 기록 / 변경사항을 추적, 통제
+Github : 백업과 공유가 가능한 온라인 코드 저장소
+
+## 명령어
+
+git init : 처음에 로컬 디렉토리와 깃을 연결 (폴더 내에 연결하기)
+git status : 상태 확인
+git add : stage 위로 올림 (지정)
+git commit : stage 에 있는 것들을 local repository 로 저장
+git log : 변경 사항 알려줌
+git push : stage(local repository) -> git(online)
+git clone : 협업시 팀원들이 그 온라인 저장소의 코드를 복제 
+git pull : online 변경사항을 local repository로 가져옴
+git add . : 모든 변경사항을 지정
+git commit -m "변경사항"
 
 ## 나만의 추억 엘범 만들기
 ```html
@@ -542,3 +568,4 @@ jQuery란? 누군가가 만들어 놓은 라이브러리 ( javascript를 보다 
 
 </html>
 ```
+
