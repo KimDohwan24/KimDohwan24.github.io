@@ -148,8 +148,7 @@ Git : 버전 관리 도구 / 코드 변경점 기록 / 변경사항을 추적, �
 Github : 백업과 공유가 가능한 온라인 코드 저장소
 
 ## 명령어
-
-git init : 처음에 로컬 디렉토리와 깃을 연결 (폴더 내에 연결하기)
+git init : 처음에 로컬 디렉토리와 깃을 연결 (폴더 내에 연결하기) 
 git status : 상태 확인
 git add : stage 위로 올림 (지정)
 git commit : stage 에 있는 것들을 local repository 로 저장
