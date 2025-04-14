@@ -6,8 +6,7 @@ categories: Sparta
 tags: [Sparta]
 ---
 
-# 스파르타 코딩클럽 3일차
-## SQL 구문 배우기
+# SQL 구문 배우기
 
 ## SQL 기본 틀
 

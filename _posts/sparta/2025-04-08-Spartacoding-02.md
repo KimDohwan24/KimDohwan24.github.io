@@ -5,7 +5,7 @@ subtitle: 스파르타 코딩클럽 2일차
 categories: Sparta
 tags: [Sparta]
 ---
-# 스파르타 코딩클럽 2일차
+
 ## Firebase Database 시작하기
 기본 세팅 구성
 ```html
