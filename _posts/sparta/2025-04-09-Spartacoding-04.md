@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 스파르타 코딩클럽
-subtitle: 스파르타 코딩클럽 3일차
+subtitle: 스파르타 코딩클럽 6일차
 categories: Sparta
 tags: [Sparta]
 ---
