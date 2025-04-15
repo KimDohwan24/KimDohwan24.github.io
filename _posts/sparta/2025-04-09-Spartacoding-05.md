@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 객체지행 이해하기
+title: 객체지향 이해하기 - 1
 subtitle: static , final
 categories: TIL
 tags: [TIL]
