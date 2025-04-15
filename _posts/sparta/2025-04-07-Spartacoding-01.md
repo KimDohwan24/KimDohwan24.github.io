@@ -3,8 +3,10 @@ layout: post
 title: HTML 기본기 다지기
 subtitle: HTML 기본기 다지기
 categories: TIL
-tags: [TIL]
+tags: [TIL , HTML]
 ---
+
+![pduck-cutout][_posts\sparta\img.png]
 
 ## 구글 폰트 가져오기
 ---
