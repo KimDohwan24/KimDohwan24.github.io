@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 객체지향 이해하기 - 2
-subtitle: static , final
+subtitle: Encapsulation, extands, Overriding
 categories: TIL
 tags: [TIL]
 ---
