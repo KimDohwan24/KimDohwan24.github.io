@@ -123,7 +123,10 @@ public class Main {
         Circle c3 = c2.changeRadius(20); // 기능을 활용
     }
 }
-
+// 결과값
+// a = 1
+// PI 값은 : 3.14159
+// c1 = chapter2.finalexample.Circle@2f4d3709
 ```
 
 ---
@@ -260,4 +263,11 @@ public class Main {
         speedCar.autoParking();
     }
 }
+// 결과값
+// 멋지게 이동합니다
+// 빠르게 이동합니다
+// 멋지게 정지합니다
+// 빠르게 정지합니다
+// 차량을 충전합니다.
+// 자동 주차 기능을 가동합니다.
 ```
