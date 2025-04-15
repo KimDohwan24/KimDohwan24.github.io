@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 스파르타 코딩클럽
-subtitle: 스파르타 코딩클럽 6일차
-categories: Sparta
-tags: [Sparta]
+title: Github 기본 명령어
+subtitle: Github
+categories: TIL
+tags: [TIL , Git]
 ---
 
 ## Github와 친해지기

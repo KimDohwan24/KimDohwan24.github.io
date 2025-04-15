@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 스파르타 코딩클럽
-subtitle: 스파르타 코딩클럽 1일차
-categories: Sparta
-tags: [Sparta]
+title: HTML 기본기 다지기
+subtitle: HTML 기본기 다지기
+categories: TIL
+tags: [TIL]
 ---
 
 ## 구글 폰트 가져오기

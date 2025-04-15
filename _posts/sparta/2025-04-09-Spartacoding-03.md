@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 스파르타 코딩클럽
-subtitle: 스파르타 코딩클럽 3일차
-categories: Sparta
-tags: [Sparta]
+title: SQL 기본기 다지기
+subtitle: SQL
+categories: TIL
+tags: [TIL , SQL]
 ---
 
 # SQL 구문 배우기

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 스파르타 코딩클럽
-subtitle: 스파르타 코딩클럽 2일차
-categories: Sparta
-tags: [Sparta]
+title: DB연동 
+subtitle: FireBase
+categories: TIL
+tags: [TIL,DB]
 ---
 
 ## Firebase Database 시작하기
