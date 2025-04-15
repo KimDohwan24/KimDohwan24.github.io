@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 객체지향 이해하기 - 3
-subtitle: abstract
+subtitle: abstract, Polymorphism
 categories: TIL
 tags: [TIL]
 ---
@@ -86,7 +86,8 @@ public class Main {
 // 스크래치
 ```
 
-### 다형성 예제 
+
+### 다형성( Polymorphism ) 예제 
 ```java 
 // LifeForm class
 
