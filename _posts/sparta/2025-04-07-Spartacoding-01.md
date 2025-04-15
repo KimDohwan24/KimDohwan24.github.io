@@ -6,7 +6,7 @@ categories: TIL
 tags: [TIL , HTML]
 ---
 
-![alt text](img.png)
+![alt text](../../assets/images/img.png)
 
 ## 구글 폰트 가져오기
 ---
