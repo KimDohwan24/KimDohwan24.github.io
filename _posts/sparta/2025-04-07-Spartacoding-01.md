@@ -6,8 +6,6 @@ categories: TIL
 tags: [TIL , HTML]
 ---
 
-![alt text](../../assets/images/img.png)
-
 ## 구글 폰트 가져오기
 ---
 먼저 구글 폰트를 검색한 후에 마음에 드는 폰트를 골라 import를 가져온다.
