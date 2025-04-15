@@ -6,7 +6,7 @@ categories: TIL
 tags: [TIL , HTML]
 ---
 
-![pduck-cutout][assets\images\img.png]
+![pduck-cutout](_posts\sparta\img.png)
 
 ## 구글 폰트 가져오기
 ---
