@@ -1,138 +1,107 @@
 ---
 layout: post
-title: 예외처리 ( Exception )
-subtitle: Exception, throw, try, catch
+title: Optional
+subtitle: Optional<>
 categories: TIL
 tags: [TIL]
 ---
 
-## 예외처리
-* 예상치 못한 상황이 발생하는 경우
+## Optional 
+* null을 안전하게 다루게 해주는 객체이다.   
+-> null : 프로그램에서 값이 없음 또는 참조하지 않음을 나타내는 키워드   
 
-### 의도하지 않은 예외
-```java
-        // 의도하지 않은 예외
-       int ret = 10/0;
-       System.out.println("ret = " + ret);
-       System.out.println("프로그램 종료");
-        // 결과값
-        // Exception in thread "main" java.lang.ArithmeticException: / by zero
-	    // at chapter3.exception.Main.main(Main.java:8)
-        // Process finished with exit code 1
-```
+* null을 직접 다루는 대신 Optional을 사용하면 NullPointerException을 방지할 수 있다.
 
-* 이런식으로 예외처리를 하지 않은 경우 그 이후의 코드는 실행되지 않는다.   
-
-### 의도한 예외
-* throw를 활용해 특정 상황에서 예외를 명확하게 정의하고 제어할 수 있다.
-
-```java
-    // 의도적인 예외 - throw
-    int age = 10;
-    if( age < 18){
-        throw new IllegalArgumentException("미성년자는 접근할 수 없습니다.");
-    }
-    System.out.println("프로그램 종료");
-    // 결과값 
-    // Exception in thread "main" java.lang.IllegalArgumentException: 미성년자는 접근할 수 없습니다.
-	// at chapter3.exception.Main.main(Main.java:13)
-```
-## RuntimeException - UncheckedException
-* RuntimeException을 상속받는 모든 예외를 UncheckedException라고 한다.   
-* 예외처리를 컴파일러가 확인하지 않는다.   
-
-### RuntimeException - UncheckedException 예
-* 존재하지 않는 파일의 이름을 입력(FileNotFoundException)   
-* 실수로 클래스의 이름을 잘못 적음(ClassNotFoundException)
+### NPE(NullPointerException)
+* 개발을 할 때 가장 많이 발생하는 예외 중 하나가 바로 NPE(NullPointerException)이다.    
+* NPE를 피하려면 null 여부를 검사해야 하는데, null 검사를 해야하는 변수가 많은 경우 코드가 복잡해지고 번거롭다.    
+그래서 null 대신 초기값을 사용하길 권장하기도 한다.   
 
 
+### Optional 이 왜 필요할까? 
+* Optional<T>는 null이 올 수 있는 값을 감싸는 Wrapper 클래스로, 참조하더라도 NPE가 발생하지 않도록 도와준다.    
+* Optional 클래스는 아래와 같은 value에 값을 저장하기 때문에 값이 null이더라도 바로 NPE가 발생하지 않으며, 클래스이기 때문에 각종 메소드를 제공해준다.    
+* null을 직접처리를 할수는 있지만, 모든코드에서 null이 발생할 가능성을 미리 알고 처리하는것은 현실적으로 불가능하기 때문에 Optional을 사용한다.
 
-### RuntimeException - UncheckedException (try - catch)예제
-```java 
-// ExceptionPractice class
-
-    public class ExceptionPractice {
-        public void callUncheckedException(){
-            if(true){
-                System.out.println("언제크 예외 발생");
-                throw new RuntimeException();
-            }
-
-            try {
-
-            } catch (RuntimeException e) {
-                System.out.println("언체크 예외 처리");
-            }
-        }
-    }
-```
----
+### Optional 예제
 
 ```java
-    // Main class
-    ExceptionPractice exceptionPractice = new ExceptionPractice();
+// Student class
+public class Student {
+    // 속성
+    private String name;
 
-    try {
-        exceptionPractice.callUncheckedException();
-    } catch (RuntimeException e) {
-        System.out.println("언체크 예외 처리");
+    // 생성자
+    public Student(String name){
+        this.name = name;
     }
-    System.out.println("프로그램 종료");
 
-    // 결과값 
-//     언제크 예외 발생
-//     언체크 예외 처리
-//     프로그램 종료
-```
-
-## Exception - CheckedException
-* Exception 클래스를 직접 상속받는 모든 예외를 CheckedException라고 한다.   
-* RuntimeException과 RuntimeException을 상속받은 예외는 제외한다.   
-* 예외처리를 컴파일러가 확인해준다.   
-
-### Exception - CheckedException 예
-* 배열의 범위를 벗어난(ArrayIndexOutOfBoundsException)
-* 값이 null이 참조변수를 참조(NullPointerException)
-
-
-### Exception - CheckedException (try - catch)예제
-```java
-// ExceptionPractice class
-    public void callCheckedException() throws Exception{
-           if(true){
-                System.out.println("체크 예외 발생");
-                throw new Exception();
-            }
-
-            try{
-                if(true){
-                    System.out.println("체크 예외 발생");
-                    throw new Exception();
-                }
-            } catch (Exception e){
-            System.out.println("체크 예외 처리");
-            }
+    // 기능
+    public String getName(){
+        return name;
     }
+}
+
 ```
 
 ---
 
 ```java
-    // Main class
-    try{
-        if(true){
-            exceptionPractice.callCheckedException();
-        }
-    } catch (Exception e){
-        System.out.println("체크 예외 처리");
+// Camp class
+public class Camp {
+    // 속성
+    private Student student;
+
+    // 생성자
+
+    // 기능
+    public Optional<Student> getStudent() {
+        return Optional.ofNullable(student);
     }
-    System.out.println("프로그램 종료");
-    
-    // 결과값 
-//     체크 예외 발생
-//     체크 예외 처리
-//     프로그램 종료
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+}
+
 ```
+
+---
+
+```java
+    public static void main(String[] args) {
+        Camp camp = new Camp();
+        Student steve = new Student("Steve");
+        camp.setStudent(steve);
+
+        // Optional 객체 활용
+        Optional<Student> studentOptional = camp.getStudent();
+        boolean flag = studentOptional.isPresent();
+
+        if(flag){
+            Student student = studentOptional.get();
+            String studentName = student.getName();
+            System.out.println("studentName = " + studentName);
+        } else System.out.println("학생 데이터가 없습니다.");
+    }
+    // 결과값 
+    // studentName = Steve
+```
+
+---
+
+## orElseGet() 
+* orElseGet() 은 값이 없을 때만 기본 값을 제공하는 로직을 실행하는 메서드이다.
+* 이것을 제대로 활용하려면 Lambda식 표현 방법을 사용할 줄 알아야 한다.
+
+```java
+Student student = camp.getStudent()
+                       .orElseGet(() -> new Student("미등록 학생"));
+```
+
+저런식으로 활용하는것이 Lambda식 표현인데 이 표현은 다음에 알아볼 것이다.
+
+---
 
 ## 느낀점
-항상 예외처리는 생각안하고 어거지로 프로그램을 만들다가 오류가 생기면 무슨 오류인지 찾기 바빴는데, 이러한 이유들이 있고 추후 문제가 생길 시 유지보수가 어렵다고 생각이 되어 앞으로는 어떠한 오류가 발생할 지 미리 예측을 해서 좀더 나은 프로그램을 만들 수 있도록 노력하자.
+null값은 신경쓰지 않고 했었는데 Optional이라는 객체가 있다는걸 알게되어 앞으로는 신경써서 예외처리를 할 수 있게 되었다.    
