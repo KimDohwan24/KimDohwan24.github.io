@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Lambda, stream
-subtitle: Lambda, stream
+title: Lambda
+subtitle: Lambda
 categories: TIL
 tags: [TIL]
 ---
