@@ -208,7 +208,7 @@ public class Mythread extends Thread {
 ### Runnable 인터페이스
 - 함수형 인터페이스
 - 쓰레드를 구현하기 위한 템플릿에 해당한다
-- 왜 쓰는가? : Thread를 상속받으면 다중 상곡이 안되기때문에 일반적으로 Runnable을 사용한다.
+- 왜 쓰는가? : Thread를 상속받으면 다중 상속이 안되기때문에 일반적으로 Runnable을 사용한다.
 
 
 #### Runnable 예제
