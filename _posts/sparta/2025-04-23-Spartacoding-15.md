@@ -18,7 +18,7 @@ tags: [TIL]
 - main() 메서드는 프로그램 시작과 동시에 생성되는 하나의 쓰레드이다.
 
 
-### 싱글 쓰레드 예제
+#### 싱글 쓰레드 예제
 
 ```java
         System.out.println("::: main 쓰레드 시작");
@@ -66,7 +66,7 @@ tags: [TIL]
 - `Thread.run()` 메서드를 오버라이드 해서 `쓰레드`가 수행할 작업을 정의할 수 있습니다.
 - `start()` 메서드를 호출하면 새로운 쓰레드가 생성되고 `run()` 의 작업 내용이 실행됩니다.
 
-### 멀티쓰레드 예제
+#### 멀티쓰레드 예제
 
 ```java
 // Mythread class
@@ -141,7 +141,7 @@ public class Mythread extends Thread {
 ### Join() 
 - 특정 쓰레드가 끝날 때까지 기다리게 하는 메서드이다.
 
-### Join() 예제
+#### Join() 예제
 
 ```java
         System.out.println("::: main 쓰레드 시작");
@@ -211,7 +211,7 @@ public class Mythread extends Thread {
 - 왜 쓰는가? : Thread를 상속받으면 다중 상곡이 안되기때문에 일반적으로 Runnable을 사용한다.
 
 
-### Runnable 예제
+#### Runnable 예제
 
 ```java
 // MyNewClass class
