@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stack, binary search
-subtitle: 
+subtitle: 스택, 이진탐색
 categories: TIL
 tags: [TIL]
 ---
@@ -113,7 +113,7 @@ class StackEx {
 - `정렬된`리스트에서 검색 범위를 줄여 나가면서 검색 값을 찾는 알고리즘
 - 정렬된 리스트에만 사용할 수 있다는 단점이 있지만, 검색이 반복될 때마다 검색 범위가 절반으로 줄기 때문에 속도가 빠르다.
 
-### 이진 탐색 알고리즘
+### 이진 탐색 알고리즘 
 1. 중간 인덱스 `mid`를 찾아 검색 공간을 두 부분으로 나눈다.
 2. 검색 공간의 중간요소를 `key`와 비교한다.
 3. 키가 중간 요소에서 발견되면 프로세스는 종료된다.
@@ -122,7 +122,7 @@ class StackEx {
 4-2) 키가 가운데 요소보다 크면 `오른쪽`이 다음 검색에 사용된다.
 5. 이 과정은 키를 찾거나 전체 검색 공간이 소요될 때까지 계속된다.
 
-### 이진탐색 예제
+### 반복적 이진탐색 예제
 
 ```java
 class BinarySearch {
@@ -164,6 +164,52 @@ class BinarySearch {
             System.out.println("Element is present at "
                                + "index " + result);
     }
+    // 결과값
+    // Element is present at index 3
+```
+
+### 재귀적 이진 탐색 알고리즘 
+```java
+// 재귀함수 : 함수에서 자기 자신을 다시 호출해 수행하는 함수
+class BinarySearch {
+    int binarySearch(int arr[], int low, int high, int x)
+    {
+        if (high >= low) {
+            int mid = low + (high - low) / 2;
+
+            // mid 탐색
+            if (arr[mid] == x)
+                return mid;
+
+            // mid > target 일 경우 오른쪽으로 탐색
+            if (arr[mid] > x)
+                return binarySearch(arr, low, mid - 1, x);
+
+            // mid < target 일 경우 왼쪽으로 탐색
+            return binarySearch(arr, mid + 1, high, x);
+        }
+
+        // target이 없는 경우 -1 리턴
+        return -1;
+    }
+
+    public static void main(String args[])
+    {
+        BinarySearch ob = new BinarySearch();
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 10;
+        int result = ob.binarySearch(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println(
+                "Element is not present in array");
+        else
+            System.out.println(
+                "Element is present at index " + result);
+    }
+}
+// 결과값
+// Element is present at index 3
 ```
 
 ---
