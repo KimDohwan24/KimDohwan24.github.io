@@ -263,7 +263,14 @@ public class HeapSort {
 
 ## Quick (퀵) / Merge (병합) / Heap (힙) 요약정리
 
-
+| 기준            | Heap Sort     | Quick Sort    | Merge Sort         |
+|-----------------|---------------|---------------|---------------------|
+| 평균 시간 복잡도 | O(n log n)    | O(n log n)    | O(n log n)          |
+| 최악 시간 복잡도 | O(n log n)    | O(n²)         | O(n log n)          |
+| 안정 정렬       | ❌            | ❌            | ✅                  |
+| 추가 메모리     | ❌ (In-place) | ❌ (In-place) | ✅ (O(n))           |
+| 구현 난이도     | 보통          | 쉬움          | 쉬움                |
+| 실사용          | 우선순위 큐 등 | 일반 정렬     | 연결 리스트 정렬 등 |
 
 ---
 
