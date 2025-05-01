@@ -156,3 +156,123 @@ public class QuickSortExample {
 2. 안정 정렬
 - 같은 값을 가진 데이터들의 원래 순서가 유지됨.
 - 예: 이름은 같고 나이는 다른 사람들을 이름순 정렬 → 나이순 정렬 시 안정 정렬이 필요함.
+
+## Heap sort ( 힙 정렬 )
+
+- 힙 자료구조를 기반으로 비교 기반 정렬 알고리즘
+
+- 완전 이진 트리의 일종으로 우선순위 큐를 위하여 만들어진 자료구조
+1. Max Heap : 부모 노드가 자식 노드보다 항상 크거나 같다
+2. Min Heap : 부모 노드가 자식 노드보다 항상 작거나 같다
+
+- 최댓값, 최솟값을 쉽게 추출할 수 있는 자료구조
+- 내림차순 정렬을 위해서는 최대 힙을 구성하고 오름차순 정렬을 위해서는 최소 힙을 구성하면 된다.
+
+### Heap sort의 정렬 과정
+1. 정렬해야 할 n개의 요소들로 최대 힙(완전 이진 트리 형태)을 만든다
+- 내림차순 정렬으로 정렬
+
+2. 그 다음으로 한번에 하나씩 요소를 힙에서 꺼내서 배열의 뒤부터 저장하면 된다.
+3. 삭제되는 요소들(최댓값부터 삭제)은 값이 감소되는 순서로 정렬되게 된다
+
+### Heap sort 예제
+
+```java
+public class HeapSort {
+
+    // 힙 정렬 함수
+    public void sort(int[] arr) {
+        int n = arr.length;
+
+        // 1. Build Max Heap
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+
+        // 2. 하나씩 루트(최대값)를 끝으로 보내고 Heapify
+        for (int i = n - 1; i > 0; i--) {
+            // 루트(최대값)와 마지막 요소 교환
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // Reduced heap에 대해 다시 heapify
+            heapify(arr, i, 0);
+        }
+    }
+
+    // 힙 구조 유지 (Heapify)
+    void heapify(int[] arr, int n, int i) {
+        int largest = i;         // 루트
+        int left = 2 * i + 1;    // 왼쪽 자식
+        int right = 2 * i + 2;   // 오른쪽 자식
+
+        // 왼쪽 자식이 루트보다 크면 largest 갱신
+        if (left < n && arr[left] > arr[largest]) {
+            largest = left;
+        }
+
+        // 오른쪽 자식이 largest보다 크면 갱신
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
+        }
+
+        // largest가 루트가 아니면 교환 후 재귀 호출
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            // 재귀적으로 자식 노드 확인
+            heapify(arr, n, largest);
+        }
+    }
+
+    // 테스트용 main 메서드
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+
+        HeapSort sorter = new HeapSort();
+        sorter.sort(arr);
+
+        System.out.println("정렬된 배열:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+// 결과값
+// 5 6 7 11 12 13
+```
+
+### Heap sort 장단점
+- 장점
+
+1. 시간 복잡도 보장 : 최악의 경우에도 O(n log n)을 보장
+2. 추가 메모리 불필요 : In-place 정렬 -> 별도의 추가 메모리 공간 없이 정렬 가능
+3. 대용량 데이터에 유리 : 메모리 사용이 적고 시간 복잡도가 안정적이라 큰 데이터셋에도 적절
+4. 부분 정렬 가능 : Max Heap 상태에서 루트만 꺼내면 최대값 추출이 O(log n)에 가능
+
+- 단점
+
+1. 정렬이 안정적이지 않음 : 동일한 값의 순서가 바뀔 수 있음 -> Stable Sort가 아님
+2. 캐시 친화적이지 않음 : 힙 구조는 배열 인덱스를 건너뛰는 경우가 많아 CPU 캐시 효율이 낮음
+3. 실제 성능이 다른 정렬보다 느릴 수 있음 : 평균적으로는 퀵 정렬이 더 빠른 경우가 많다.(특히 작은 데이터셋에서)
+4. 구현이 약간 복잡 : Heapify 과정이 재귀적이고 구조가 직관적이지 않아 퀵 정렬보다 구현 난이도가 약간 높음
+
+## Quick (퀵) / Merge (병합) / Heap (힙) 요약정리
+| 기준            | Heap Sort     | Quick Sort    | Merge Sort         |
+|-----------------|---------------|---------------|---------------------|
+| 평균 시간 복잡도 | O(n log n)    | O(n log n)    | O(n log n)          |
+| 최악 시간 복잡도 | O(n log n)    | O(n²)         | O(n log n)          |
+| 안정 정렬       | ❌            | ❌            | ✅                  |
+| 추가 메모리     | ❌ (In-place) | ❌ (In-place) | ✅ (O(n))           |
+| 구현 난이도     | 보통          | 쉬움          | 쉬움                |
+| 실사용          | 우선순위 큐 등 | 일반 정렬     | 연결 리스트 정렬 등 |
+
+---
+
+## 느낀점
+세상엔 참 많은 알고리즘이 있는데 이런걸 언제 다 외워서 써야하나.. 
+하나 둘 점점 쓰다보면 늘긴하겠지..?
