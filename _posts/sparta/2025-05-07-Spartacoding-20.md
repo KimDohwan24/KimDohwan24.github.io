@@ -71,7 +71,6 @@ tags: [TIL]
 #### Spring MVC와의 관계
 - Spring MVC는 내부적으로 Servlet을 기반으로 동작한다.
 - `DispatcherServlet`이라는 Spring에서 제공하는 핵심 Servlet이 모든 HTTP 요청을 받아 처리한다.
-
 - 흐름 예시
 1. 사용자 요청 → 톰캣(Servlet Container)
 2. 톰캣이 DispatcherServlet 호출
