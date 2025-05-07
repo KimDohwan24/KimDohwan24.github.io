@@ -80,10 +80,5 @@ tags: [TIL]
 
 
 ### 요약   
-| 개념 | 설명 |
-|------|------|
-| **Servlet** | HTTP 요청과 응답을 처리하는 자바 클래스 (`HttpServlet` 등) |
-| **Servlet Container** | Servlet의 생명주기 관리 및 요청을 Servlet에 전달하는 실행 환경 (ex. Tomcat) |
-| **Spring MVC** | `DispatcherServlet`을 중심으로 요청을 처리하는 Spring의 웹 프레임워크 (MVC 패턴 적용) |
-| **3-Layer 아키텍처** | 애플리케이션을 역할에 따라 Controller, Service, Repository로 나누는 구조로, 유지보수성과 테스트성 향상 |
+
 
