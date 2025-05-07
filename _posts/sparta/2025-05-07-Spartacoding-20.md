@@ -79,9 +79,5 @@ tags: [TIL]
 5. 응답 반환 → DispatcherServlet → 사용자
 
 
-### 요약
-| 개념                    | 설명                                         |
-| --------------------- | ------------------------------------------ |
-| **Servlet**           | HTTP 요청/응답을 처리하는 자바 클래스                    |
-| **Servlet Container** | Servlet을 실행하고 관리하는 서버 환경 (ex. Tomcat)      |
-| **Spring MVC**        | Servlet(DispatcherServlet)을 기반으로 한 웹 프레임워크 |
+### 요약   
+
