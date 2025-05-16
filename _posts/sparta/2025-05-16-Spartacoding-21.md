@@ -17,6 +17,7 @@ tags: [TIL]
 - 클래스는 실세계 개념을 반영 ( User,Schedule ... )
 
 3. 객체 관계 정의
+
 - 객체 간 관계 설정 
 1. 연관 ( Association )
 2. 상속 ( Inheritance )
