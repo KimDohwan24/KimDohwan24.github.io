@@ -41,7 +41,7 @@ tags: [TIL]
 6. 디자인 패턴 적용
 - 필요한 곳에 디자인 패턴 적용하여 재사용성과 유연성 확보
 
-IOC/DI 란 ?
+### IOC/DI 란 ?
 
 - IoC ( Inversion of Control , 제어의 역전 ) : 객체의 생성, 초기화, 생명주기 관리 등의 *제어권을 개발자가 아닌 프레임워크*가 갖는 것을 의미한다.
 
@@ -51,13 +51,14 @@ IOC/DI 란 ?
 UserService userService = new UserService();
 ```
 
-IoC 방식
+#### IoC 방식
 
 ```java
 @Autowired
 private UserService userService;
 ```
 
+#### DI 방식
 - DI ( Dependency Injection, 의존성 주입 ) : 객체가 필요로 하는 의존 객체를 직접 생성하지 않고, 외부에서 주입 받는 것
 - 즉, DI는 IoC를 실현하는 구체적인 방법 중 하나이다.
 
@@ -67,7 +68,7 @@ private UserService userService;
 | 의존성 해결  | 필요한 객체를 찾아서 주입 (DI)                                  |
 | 생명주기 관리 | 생성 ~ 소멸까지 Spring이 제어 (IoC)                          |
 
-IoC/DI 요약
+### IoC/DI 요약
 
 - IoC는 큰 개념, DI는 IoC의 실현 방식입니다.
 - Spring에서는 IoC Container(ApplicationContext)가 객체를 생성하고, DI를 통해 필요한 객체를 알아서 주입해줍니다.
