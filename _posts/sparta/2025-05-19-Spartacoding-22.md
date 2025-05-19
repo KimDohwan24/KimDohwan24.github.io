@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Spring Bean
-subtitle: Bean
+title: Spring Bean, Singleton Pattern
+subtitle: Bean, Singleton
 categories: TIL
 tags: [TIL]
 ---
@@ -72,3 +72,57 @@ public MyController(MyService myService) {
 | Spring Bean | Spring 컨테이너가 생성하고 관리하는 객체                                       |
 | 등록 방식       | `@Component`, `@Service`, `@Repository`, `@Controller`, `@Bean` |
 | 관리 이유       | 객체 생명주기 관리, DI를 통한 유연한 설계, 테스트 용이성                              |
+
+
+## Singleton Pattern
+- 싱글톤은 객체를 단 하나만 생성해서 공유하도록 보장하는 디자인 패턴이다
+- 프로그램이 실행되는 동안 한 클래스에 대해 오직 하나의 인스턴스만 존재하도록 하는 방식이다
+
+### 그럼 싱글톤은 왜쓸까?
+1. 메모리 절약 ( 여러개를 만들지 않음 )
+2. 객체 간 공유가 필요할 때 사용 ( 서브시, 설정 ... )
+3. 성능 향상 ( 객체 생성 비용 감소 )
+
+### 일반적인 싱글톤 구현 
+```java
+public class MySingleton {
+    private static final MySingleton instance = new MySingleton();
+
+    private MySingleton() {
+        // private 생성자 → 외부에서 new로 생성 불가
+    }
+
+    public static MySingleton getInstance() {
+        return instance;
+    }
+}
+```
+
+### Spring과 싱글톤
+- Spring은 기본적으로 **모든 Bean을 싱글톤으로 관리**한다.
+- `@Component`,`@Service`,`@Repository` 등을 붙여 Bean으로 등록하면 자동으로 하나의 인스턴스만 생성되고, 필요한 곳에 주입해서 재사용한다.
+
+```java
+@Service
+public class UserService {
+    // Spring은 이 클래스를 싱글톤으로 관리함
+}
+
+---------------------------------------------
+
+@Autowired
+private UserService userService1;
+
+@Autowired
+private UserService userService2;
+
+// 두 필드는 같은 인스턴스를 참조함
+```
+
+### 싱글톤 요약
+| 항목          | 설명                                     |
+| ----------- | -------------------------------------- |
+| 싱글톤 패턴      | 애플리케이션에 하나의 인스턴스만 존재하게 만드는 디자인 패턴      |
+| Spring Bean | 기본적으로 싱글톤으로 생성되고 관리됨                   |
+| 장점          | 메모리 절약, 공유 용이성, 성능 향상                  |
+| 유의사항        | 상태를 가지는 싱글톤 객체는 동시성 문제 주의 (스레드 안전성 필요) |
