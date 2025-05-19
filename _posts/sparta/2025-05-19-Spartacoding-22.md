@@ -69,6 +69,11 @@ public MyController(MyService myService) {
 
 ### Spring Bean 요약
 
+| 개념          | 설명                                                              |
+| ----------- | --------------------------------------------------------------- |
+| Spring Bean | Spring 컨테이너가 생성하고 관리하는 객체                                       |
+| 등록 방식       | `@Component`, `@Service`, `@Repository`, `@Controller`, `@Bean` |
+| 관리 이유       | 객체 생명주기 관리, DI를 통한 유연한 설계, 테스트 용이성                              |
 
 
 ## Singleton Pattern
