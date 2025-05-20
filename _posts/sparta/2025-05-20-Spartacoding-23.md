@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Validation, BindingResult
-subtitle: 검증(validation)
+subtitle: 검증(validation), BindingResult
 categories: TIL
 tags: [TIL]
 ---
