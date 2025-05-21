@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cookie, Session, Token
-subtitle: 인증/인가
+subtitle: 인증 / 인가
 categories: TIL
 tags: [TIL]
 ---
@@ -58,6 +58,3 @@ tags: [TIL]
 1. 쿠키 값은 임의로 변경할 수 있다
 2. Cookie에 저장된 Data는 탈취되기 쉽다.
 3. 용량이 제한되어 있다.
-
-
-## Session
