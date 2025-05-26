@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Json Web Token , Filter
+title: Json Web Token, Filter
 subtitle: JWT, Filter
 categories: TIL
 tags: [TIL]
@@ -120,3 +120,21 @@ HMACSHA256(
 | -------------------- | ------------- |
 | 빠른 확장성과 API 중심의 서비스  |  **JWT**     |
 | 간단한 시스템, 보안 중심 웹 서비스 |  **Session** |
+
+## Token의 유형
+1. Access Token
+- 사용자 인증 후 서버가 발급하는 유저 정보가 담긴 토큰이다.
+- 유효 기간 동안 API나 리소스에 접근할 때 사용한다.
+
+2. Refresh Token
+- Access Token은 보안을 위해 짧은 수명을 가진다
+- Access Token이 만료된 경우 재발급 받기 위해 사용한다.
+- 주로 데이터베이스에 유저 정보와 같이 저장한다.
+
+### Access Token, Refresh Token 인증
+1. 클라이언트의 로그인 요청
+2. 로그인에 성공했다면 Header, Payload에 `Secret Key`를 사용하여 Signature를 만든다.
+3. 발급받은 JWT를 저장 후 서버에 요청할 때 `Authorization` Header에 JWT(`Access Token`)를 담아 보낸다.
+4. 서버에서 JWT의 유효성 검사를 통해 통과한다면 인증에 성공하여 요청을 처리해준다.
+5. `Access Token`이 만료 되었다면 `Refresh Token` 으로 토큰 재발급을 요청한다.
+6. 서버로부터 `Access Token`을 재발급 받는다.
