@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Json Web Token, Filter
-subtitle: JWT, Filter
+title: Json Web Token
+subtitle: JWT
 categories: TIL
 tags: [TIL]
 ---
