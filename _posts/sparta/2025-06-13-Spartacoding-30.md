@@ -50,7 +50,7 @@ List<Member> resultList = query.getResultList();
 - JPQL을 실행하려면 쿼리 객체를 만들어야한다. 쿼리 객체로는 TypedQuery와 Query가 있는데,    
 반환할 타입을 명확하게 지정할 수 있으면 TypedQuery와 객체를, 명확하게 지정할 수 없으면 Query 객체를 사용한다
 
-### TypedQuery
+#### TypedQuery
 
 ```java
 
@@ -67,7 +67,7 @@ public static void typedQuery(EntityManager em) {
 - EntityManager 객체에서 createQuery() 메소드를 호출하면 쿼리가 생성된다.
 - em.createQuery 메소드를 호출할 때 두 번째 인자로 엔티티 클래스를 넘겨준다.
 
-### Query
+#### Query
 
 ```java
 public static void Query(EntityManager em) {   
@@ -89,7 +89,7 @@ public static void Query(EntityManager em) {
 - 파라미터 바인딩에는 이름 기준 파라미터와 위치 기준 파라미터가 있다.
 - 위치 기준 파라미터 보다 이름 기준 파라미터가 더 명확하다.
 
-### 이름 기준 파라미터 
+#### 이름 기준 파라미터 
 
 ```java
 public static void namedParameter(EntityManager em, String param) {    
@@ -102,7 +102,7 @@ public static void namedParameter(EntityManager em, String param) {
 - 이름을 기준으로 파라미터를 바인딩 한다. 콜론( : ) 을 사용해 데이터가 추가될 곳을 지정하고,
 query.setParameter() 메소드를 호출해 데이터를 동적으로 바인딩 한다.
 
-### 위치 기준 파라미터
+#### 위치 기준 파라미터
 - 엔티티를 대상을 조회하려면 편리하겠지만, 꼭 필요한 데이터들만 선택해서 조회해야 할 때도 있다.
 - 이럴때 MemberDto 처럼 의미있는 객체로 변환해서 사용한다.
 
