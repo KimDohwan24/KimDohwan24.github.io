@@ -1,0 +1,124 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(5, 5, 5, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.navbar--scrolled {
+    background: rgba(5, 5, 5, 0.85);
+    border-bottom-color: var(--border-glass);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Mobile menu */
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.nav-mobile--open {
+    max-height: 400px;
+    padding: 1.5rem 0;
+}
+
+.nav-mobile a {
+    display: block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.nav-mobile a:hover {
+    color: var(--text-main);
+    background: var(--bg-glass-hover);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-mobile {
+        display: block;
+    }
+}

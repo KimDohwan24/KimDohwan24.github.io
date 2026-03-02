@@ -1,0 +1,17 @@
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header__subtitle {
+    color: var(--accent-1);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+}
