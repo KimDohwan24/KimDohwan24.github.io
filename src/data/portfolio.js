@@ -1,7 +1,7 @@
-import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone } from 'lucide-react';
+import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingCart, Users } from 'lucide-react';
 
 export const personalInfo = {
-    name: '김도환',
+    name: 'DoHwan',
     role: 'Full Stack Developer',
     email: 'hello@example.com',
     github: 'https://github.com',
@@ -43,6 +43,22 @@ export const skills = [
 ];
 
 export const projects = [
+    {
+        title: '같이먹자 (Eat_Together)',
+        description:
+            '1인 가구의 배달비 부담 문제를 해결하는 지역 기반 공동 주문 플랫폼입니다. 유저 관리 시스템과 Prometheus/Grafana 기반의 모니터링 시스템 구축을 담당했습니다. 대규모 트래픽 상황에서 발생하는 DB 커넥션 풀 고갈 문제를 Redis 캐싱 도입을 통해 해결하여 에러율을 31%에서 0%로 개선한 경험이 있습니다.',
+        tags: ['Spring Boot', 'Java', 'Redis', 'Kafka', 'MySQL', 'Docker', 'Prometheus', 'Grafana', 'ELK Stack'],
+        iconName: 'ShoppingCart',
+        iconColor: '#f97316',
+        link: 'https://github.com/hojunyun-dev/Eat_Together',
+        projectPage: 'https://www.notion.so/teamsparta/4-2542dc3ef51480f9b6ece1fc050a12b7',
+        highlights: [
+            'Prometheus & Grafana를 이용한 전방위적 인프라 모니터링 시스템 구축',
+            'Redis 캐싱을 통한 맛집 검색 성능 최적화 및 DB 부하 절감 (에러율 0% 달성)',
+            'Kafka를 활용한 이벤트 기반 메시징 아키텍처 설계 참여',
+            'Redis LocalDateTime 직렬화 트러블슈팅 및 해결'
+        ]
+    },
     {
         title: 'E-commerce Platform',
         description:
@@ -106,6 +122,8 @@ export const iconMap = {
     Server,
     Globe,
     Smartphone,
+    ShoppingCart,
+    Users,
 };
 
 export const experiences = [

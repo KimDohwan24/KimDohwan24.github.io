@@ -24,6 +24,13 @@ export default function Projects() {
                                     </div>
                                     <h3>{project.title}</h3>
                                     <p className="project-desc">{project.description}</p>
+                                    {project.highlights && (
+                                        <ul className="project-highlights">
+                                            {project.highlights.map((highlight, idx) => (
+                                                <li key={idx}>{highlight}</li>
+                                            ))}
+                                        </ul>
+                                    )}
                                     <div className="project-tags">
                                         {project.tags.map((tag) => (
                                             <span key={tag} className="project-tag">
@@ -31,10 +38,17 @@ export default function Projects() {
                                             </span>
                                         ))}
                                     </div>
-                                    <a href={project.link} className="btn btn-secondary btn-sm">
-                                        <ExternalLink size={16} />
-                                        상세 보기
-                                    </a>
+                                    <div className="project-links">
+                                        <a href={project.link} className="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+                                            <ExternalLink size={16} />
+                                            GitHub
+                                        </a>
+                                        {project.projectPage && (
+                                            <a href={project.projectPage} className="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+                                                프로젝트 페이지
+                                            </a>
+                                        )}
+                                    </div>
                                 </GlassCard>
                             );
                         })}
