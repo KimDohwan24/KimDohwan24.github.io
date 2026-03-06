@@ -60,6 +60,22 @@ export const projects = [
         ]
     },
     {
+        title: 'HotDealAPI - 실시간 핫딜 이벤트 시스템',
+        description:
+            '실시간 핫딜 이벤트 관리 및 주문 처리를 위한 백엔드 시스템입니다. 도메인 주도 설계(DDD)를 기반으로 하여 복잡한 비즈니스 로직을 명확하게 분리하였고, Redisson 분산 락을 활용하여 동시성 상황에서도 정확한 재고 관리를 구현했습니다. 또한 WebSocket을 이용해 실시간 알림 기능을 제공하며, Saga 패턴으로 도메인 간 데이터 일관성을 보장했습니다.',
+        tags: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'Redis', 'MySQL', 'Redisson', 'WebSocket', 'JWT', 'Docker'],
+        iconName: 'Server',
+        iconColor: '#3b82f6',
+        link: 'https://github.com/LJY981008/HotDealAPI',
+        highlights: [
+            '도메인 주도 설계(DDD)를 통한 비즈니스 로직 계층화 및 책임 분리',
+            'Redisson 분산 락을 활용한 재고 차감 동시성 제어 및 대용량 트래픽 대비',
+            'WebSocket 및 Spring Event 기반의 실시간 이벤트 알림 시스템 구축',
+            'Saga 패턴(보상 트랜잭션)을 적용한 도메인 간 데이터 정합성 유지',
+            '기존 단일 삽입 방식에서 벌크 인서트(Bulk Insert)로 개선하여 이벤트 등록 성능 93% 향상'
+        ]
+    },
+    {
         title: 'E-commerce Platform',
         description:
             'Next.js와 TypeScript 기반의 고성능 쇼핑몰 플랫폼. 결제 시스템 연동 및 사용자 대시보드 구현.',
