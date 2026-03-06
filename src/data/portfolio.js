@@ -1,7 +1,7 @@
-import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone } from 'lucide-react';
+import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingCart, Users } from 'lucide-react';
 
 export const personalInfo = {
-    name: '김도환',
+    name: 'DoHwan',
     role: 'Full Stack Developer',
     email: 'hello@example.com',
     github: 'https://github.com',
@@ -43,6 +43,22 @@ export const skills = [
 ];
 
 export const projects = [
+    {
+        title: '같이먹자 (Eat_Together)',
+        description:
+            '1인 가구의 배달비 부담 문제를 해결하는 지역 기반 공동 주문 플랫폼입니다. 유저 관리 시스템과 Prometheus/Grafana 기반의 모니터링 시스템 구축을 담당했습니다. 대규모 트래픽 상황에서 발생하는 DB 커넥션 풀 고갈 문제를 Redis 캐싱 도입을 통해 해결하여 에러율을 31%에서 0%로 개선한 경험이 있습니다.',
+        tags: ['Spring Boot', 'Java', 'Redis', 'Kafka', 'MySQL', 'Docker', 'Prometheus', 'Grafana', 'ELK Stack'],
+        iconName: 'ShoppingCart',
+        iconColor: '#f97316',
+        link: 'https://github.com/hojunyun-dev/Eat_Together',
+        projectPage: 'https://www.notion.so/teamsparta/4-2542dc3ef51480f9b6ece1fc050a12b7',
+        highlights: [
+            'Prometheus & Grafana를 이용한 전방위적 인프라 모니터링 시스템 구축',
+            'Redis 캐싱을 통한 맛집 검색 성능 최적화 및 DB 부하 절감 (에러율 0% 달성)',
+            'Kafka를 활용한 이벤트 기반 메시징 아키텍처 설계 참여',
+            'Redis LocalDateTime 직렬화 트러블슈팅 및 해결'
+        ]
+    },
     {
         title: 'E-commerce Platform',
         description:
@@ -106,28 +122,44 @@ export const iconMap = {
     Server,
     Globe,
     Smartphone,
+    ShoppingCart,
+    Users,
 };
 
 export const experiences = [
     {
-        period: '2024 - 현재',
-        title: 'Senior Frontend Developer',
-        company: 'TechVision Labs',
+        period: '2018 - 2019',
+        title: '원광대학교 입학',
+        company: '컴퓨터소프트웨어공학 전공',
         description:
-            '대규모 SaaS 플랫폼의 프론트엔드 아키텍처 설계 및 개발 리드. 디자인 시스템 구축 및 성능 최적화 주도.',
+            '컴퓨터공학의 기초 원리를 학습하고 프로그래밍 언어(C, Java 등)의 기본기를 다졌습니다.',
     },
     {
-        period: '2022 - 2024',
-        title: 'Full Stack Developer',
-        company: 'StartupFlow Inc.',
+        period: '2019 - 2021',
+        title: '군 복무 (대한민국 육군)',
+        company: '병장 만기 전역',
         description:
-            'Node.js/React 기반의 B2B 플랫폼 구축. RESTful API 설계 및 프론트엔드 구현. CI/CD 파이프라인 개선.',
+            '성실한 복무를 통해 책임감과 협업의 중요성을 배웠으며, 개인 정비 시간을 활용하여 꾸준히 기술을 학습했습니다.',
     },
     {
-        period: '2021 - 2022',
-        title: 'Junior Developer',
-        company: 'CodeBridge',
+        period: '2021 - 2024',
+        title: '원광대학교 복학 및 졸업',
+        company: '컴퓨터소프트웨어공학 전공',
         description:
-            '웹 어플리케이션 유지보수 및 신규 기능 개발. React 마이그레이션 프로젝트 참여.',
+            '전공 심화 과정을 이수하며 풀스택 개발자로서의 역량을 다졌습니다. 다수의 팀 프로젝트에서 백엔드 및 인프라 구성을 주도하며 실무 기술을 습득했습니다.',
+    },
+    {
+        period: '2025.04 - 2025.10',
+        title: '내일배움캠프 (스파르타 부트캠프) 수료',
+        company: '스파르타코딩클럽',
+        description:
+            '강도 높은 실무 중심 커리큘럼을 통해 웹 서비스 기획부터 배포, 성능 최적화까지 프로젝트의 전 과정을 경험했습니다. 특히 실시간 공동 주문 플랫폼 프로젝트에서 백엔드 고도화를 담당하며 에러율 개선 및 안정적인 시스템 구축을 주도했습니다.',
+    },
+    {
+        period: '2025.10 - 2025.11',
+        title: '풀스택 개발 인턴 (Full Stack Intern)',
+        company: '㈜ 에이아이웍스',
+        description:
+            'AI 연동 서비스의 풀스택 개발 및 유지보수를 담당했습니다. 효율적인 데이터 관리를 위한 파일 업로더 시스템을 직접 설계 및 개발하였으며, 프론트엔드 UI 개선부터 백엔드 API 안정화까지 서비스 전반의 유지보수를 수행하며 실무 대응 역량을 쌓았습니다.',
     },
 ];
