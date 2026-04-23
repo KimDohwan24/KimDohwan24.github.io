@@ -17,7 +17,8 @@
     gap: 1.25rem;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-links button {
     color: var(--text-muted);
     transition: var(--transition);
     display: flex;
@@ -28,13 +29,28 @@
     border-radius: 50%;
     background: var(--bg-glass);
     border: 1px solid var(--border-glass);
+    cursor: pointer;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links button:hover {
     color: var(--text-main);
     background: var(--bg-glass-hover);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
+}
+
+.footer-copy-feedback {
+    min-height: 1.25rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--accent-1);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer-copy-feedback.visible {
+    opacity: 1;
 }
 
 .footer p {
