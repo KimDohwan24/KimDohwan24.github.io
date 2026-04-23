@@ -5,6 +5,7 @@ export const personalInfo = {
     role: 'Full Stack Developer',
     email: 'hello@example.com',
     github: 'https://github.com',
+    blog: 'https://kimdohwan24.github.io/TIL',
     tagline: '디지털 세상을 위한 경험을 설계합니다.',
     heroDescription:
         '사용자 중심의 사고와 모던 웹 기술(Node.js, React)을 결합하여, 아름답고 성능이 뛰어난 웹 어플리케이션을 개발합니다. 끊임없이 발전하는 기술 생태계 속에서 가치 있는 프로덕트를 만듭니다.',

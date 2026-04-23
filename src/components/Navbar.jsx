@@ -21,6 +21,7 @@ export default function Navbar() {
         { href: '#projects', label: 'Projects' },
         { href: '#experience', label: 'Experience' },
         { href: '#contact', label: 'Contact' },
+        { href: personalInfo.blog || '#', label: 'Blog', isExternal: true },
     ];
 
     return (
@@ -33,7 +34,12 @@ export default function Navbar() {
                 {/* Desktop Nav */}
                 <div className="nav-links">
                     {navLinks.map((link) => (
-                        <a key={link.href} href={link.href}>
+                        <a 
+                            key={link.label} 
+                            href={link.href}
+                            target={link.isExternal ? "_blank" : undefined}
+                            rel={link.isExternal ? "noopener noreferrer" : undefined}
+                        >
                             {link.label}
                         </a>
                     ))}
@@ -52,7 +58,13 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <div className={`nav-mobile ${isOpen ? 'nav-mobile--open' : ''}`}>
                 {navLinks.map((link) => (
-                    <a key={link.href} href={link.href} onClick={handleLinkClick}>
+                    <a 
+                        key={link.label} 
+                        href={link.href} 
+                        onClick={link.isExternal ? undefined : handleLinkClick}
+                        target={link.isExternal ? "_blank" : undefined}
+                        rel={link.isExternal ? "noopener noreferrer" : undefined}
+                    >
                         {link.label}
                     </a>
                 ))}
