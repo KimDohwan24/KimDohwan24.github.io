@@ -19,25 +19,19 @@ export const skills = [
         category: 'Frontend',
         items: [
             { name: 'React', level: 88 },
-            { name: 'Vite', level: 82 },
             { name: 'TypeScript', level: 78 },
             { name: 'JavaScript', level: 84 },
-            { name: 'Expo', level: 70 },
         ],
     },
     {
         category: 'Backend',
         items: [
             { name: 'Java', level: 86 },
-            { name: 'Python', level: 68 },
             { name: 'Spring', level: 82 },
             { name: 'Spring Boot', level: 84 },
             { name: 'NestJS', level: 76 },
-            { name: 'TypeORM', level: 72 },
-            { name: 'PostgreSQL', level: 74 },
             { name: 'Redis', level: 82 },
             { name: 'Swagger', level: 70 },
-            { name: 'Socket.IO', level: 68 },
         ],
     },
     {
