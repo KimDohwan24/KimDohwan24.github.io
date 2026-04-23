@@ -28,6 +28,7 @@
 .hero p {
     margin: 1.5rem auto 2.5rem;
     max-width: 600px;
+    white-space: pre-line;
 }
 
 .hero-buttons {

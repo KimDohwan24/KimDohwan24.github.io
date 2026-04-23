@@ -2,13 +2,14 @@ import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingC
 
 export const personalInfo = {
     name: 'DoHwan',
-    role: 'Full Stack Developer',
+    role: 'Back End Developer',
     email: 'ehghks18@gmail.com',
     github: 'https://github.com/KimDohwan24',
     blog: 'https://kimdohwan24.github.io/TIL',
-    tagline: '디지털 세상을 위한 경험을 설계합니다.',
-    heroDescription:
-        '사용자 중심의 사고와 모던 웹 기술(Node.js, React)을 결합하여, 아름답고 성능이 뛰어난 웹 어플리케이션을 개발합니다. 끊임없이 발전하는 기술 생태계 속에서 가치 있는 프로덕트를 만듭니다.',
+    heroTitle: `디지털 세상을 위한
+경험을 설계합니다.`,
+    heroDescription: `탄탄한 구조 위에 신뢰할 수 있는 서비스를 만드는 백엔드 개발자입니다.
+Java와 Spring 기반의 개발 경험을 바탕으로 성능과 확장성을 꾸준히 고민하고 있습니다.`,
     aboutDescription: `빠르게 변화하는 기술 속에서 새로운 가능성을 발견하고 만들어가고 있습니다.
 프론트엔드와 백엔드를 함께 이해하며 더 나은 흐름과 경험을 고민합니다.
 기술로 자연스럽고 의미 있는 서비스를 만드는 개발자가 되고자 합니다.`,
