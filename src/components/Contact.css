@@ -35,3 +35,15 @@
     margin-bottom: 2rem;
     line-height: 1.7;
 }
+
+.contact-copy-feedback {
+    min-height: 1.5rem;
+    margin: 1rem 0 0;
+    color: var(--accent-1);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.contact-copy-feedback.visible {
+    opacity: 1;
+}

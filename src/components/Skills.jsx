@@ -17,21 +17,10 @@ export default function Skills() {
                         {skills.map((group, gi) => (
                             <GlassCard key={group.category} delay={gi * 100}>
                                 <h3 className="skill-category">{group.category}</h3>
-                                <div className="skill-items">
+                                <div className="skill-badges">
                                     {group.items.map((skill) => (
-                                        <div key={skill.name} className="skill-item">
-                                            <div className="skill-info">
-                                                <span className="skill-name">{skill.name}</span>
-                                                <span className="skill-level">{skill.level}%</span>
-                                            </div>
-                                            <div className="skill-bar">
-                                                <div
-                                                    className="skill-bar__fill"
-                                                    style={{
-                                                        width: isVisible ? `${skill.level}%` : '0%',
-                                                    }}
-                                                />
-                                            </div>
+                                        <div key={skill.name} className="skill-badge">
+                                            {skill.name}
                                         </div>
                                     ))}
                                 </div>

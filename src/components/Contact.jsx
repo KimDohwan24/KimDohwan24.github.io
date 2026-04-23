@@ -1,4 +1,5 @@
 import { Mail, Send } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/portfolio';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import GlassCard from './ui/GlassCard';
@@ -6,6 +7,30 @@ import './Contact.css';
 
 export default function Contact() {
     const { ref, isVisible } = useScrollReveal();
+    const [isCopied, setIsCopied] = useState(false);
+
+    useEffect(() => {
+        if (!isCopied) {
+            return undefined;
+        }
+
+        const timeoutId = window.setTimeout(() => {
+            setIsCopied(false);
+        }, 2000);
+
+        return () => {
+            window.clearTimeout(timeoutId);
+        };
+    }, [isCopied]);
+
+    const handleCopyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(personalInfo.email);
+            setIsCopied(true);
+        } catch (error) {
+            window.alert('이메일 복사에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+        }
+    };
 
     return (
         <section className="section" id="contact" ref={ref}>
@@ -21,10 +46,13 @@ export default function Contact() {
                             <br />
                             빠른 시간 내에 답변 드리겠습니다.
                         </p>
-                        <a href={`mailto:${personalInfo.email}`} className="btn btn-primary">
+                        <button type="button" className="btn btn-primary" onClick={handleCopyEmail}>
                             <Mail size={20} />
-                            메일 보내기
-                        </a>
+                            이메일 복사
+                        </button>
+                        <p className={`contact-copy-feedback ${isCopied ? 'visible' : ''}`} aria-live="polite">
+                            이메일이 복사되었습니다.
+                        </p>
                     </GlassCard>
                 </div>
             </div>

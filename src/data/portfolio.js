@@ -3,42 +3,52 @@ import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingC
 export const personalInfo = {
     name: 'DoHwan',
     role: 'Full Stack Developer',
-    email: 'hello@example.com',
-    github: 'https://github.com',
+    email: 'ehghks18@gmail.com',
+    github: 'https://github.com/KimDohwan24',
     blog: 'https://kimdohwan24.github.io/TIL',
     tagline: '디지털 세상을 위한 경험을 설계합니다.',
     heroDescription:
         '사용자 중심의 사고와 모던 웹 기술(Node.js, React)을 결합하여, 아름답고 성능이 뛰어난 웹 어플리케이션을 개발합니다. 끊임없이 발전하는 기술 생태계 속에서 가치 있는 프로덕트를 만듭니다.',
-    aboutDescription:
-        '안녕하세요! 3년차 풀스택 개발자입니다. 백엔드 아키텍처 설계부터 프론트엔드 UI 구현까지, 사용자에게 최고의 경험을 전달하기 위해 끊임없이 고민합니다. 클린 코드와 테스트 주도 개발을 지향하며, 개방적인 커뮤니케이션을 통해 팀과 함께 성장하는 것을 좋아합니다.',
+    aboutDescription: `빠르게 변화하는 기술 속에서 새로운 가능성을 발견하고 만들어가고 있습니다.
+프론트엔드와 백엔드를 함께 이해하며 더 나은 흐름과 경험을 고민합니다.
+기술로 자연스럽고 의미 있는 서비스를 만드는 개발자가 되고자 합니다.`,
 };
 
 export const skills = [
     {
         category: 'Frontend',
         items: [
-            { name: 'React', level: 90 },
-            { name: 'Next.js', level: 85 },
-            { name: 'TypeScript', level: 80 },
-            { name: 'HTML/CSS', level: 95 },
+            { name: 'React', level: 88 },
+            { name: 'Vite', level: 82 },
+            { name: 'TypeScript', level: 78 },
+            { name: 'JavaScript', level: 84 },
+            { name: 'Expo', level: 70 },
         ],
     },
     {
         category: 'Backend',
         items: [
-            { name: 'Node.js', level: 90 },
-            { name: 'Express', level: 85 },
-            { name: 'NestJS', level: 75 },
-            { name: 'PostgreSQL', level: 80 },
+            { name: 'Java', level: 86 },
+            { name: 'Python', level: 68 },
+            { name: 'Spring', level: 82 },
+            { name: 'Spring Boot', level: 84 },
+            { name: 'NestJS', level: 76 },
+            { name: 'TypeORM', level: 72 },
+            { name: 'PostgreSQL', level: 74 },
+            { name: 'Redis', level: 82 },
+            { name: 'Swagger', level: 70 },
+            { name: 'Socket.IO', level: 68 },
         ],
     },
     {
         category: 'DevOps & Tools',
         items: [
-            { name: 'Docker', level: 75 },
-            { name: 'AWS', level: 70 },
-            { name: 'Git', level: 90 },
-            { name: 'CI/CD', level: 75 },
+            { name: 'Docker', level: 80 },
+            { name: 'Git', level: 88 },
+            { name: 'GitHub', level: 86 },
+            { name: 'AWS', level: 72 },
+            { name: 'Prometheus', level: 74 },
+            { name: 'Grafana', level: 72 },
         ],
     },
 ];
@@ -46,6 +56,7 @@ export const skills = [
 export const projects = [
     {
         title: '같이먹자 (Eat_Together)',
+        status: '프로젝트 완료',
         description:
             '1인 가구의 배달비 부담 문제를 해결하는 지역 기반 공동 주문 플랫폼입니다. 유저 관리 시스템과 Prometheus/Grafana 기반의 모니터링 시스템 구축을 담당했습니다. 대규모 트래픽 상황에서 발생하는 DB 커넥션 풀 고갈 문제를 Redis 캐싱 도입을 통해 해결하여 에러율을 31%에서 0%로 개선한 경험이 있습니다.',
         tags: ['Spring Boot', 'Java', 'Redis', 'Kafka', 'MySQL', 'Docker', 'Prometheus', 'Grafana', 'ELK Stack'],
@@ -61,7 +72,23 @@ export const projects = [
         ]
     },
     {
+        title: 'LostArkSearch',
+        status: '프로젝트 진행 중',
+        description:
+            '로스트아크 관련 정보를 빠르게 탐색할 수 있도록 구성한 검색 프로젝트입니다. 원하는 정보를 직관적으로 찾을 수 있는 흐름에 집중하며, 검색 중심 UI와 데이터 표시 구조를 직접 구현했습니다.',
+        tags: ['React', 'Vite', 'JavaScript', 'CSS'],
+        iconName: 'Globe',
+        iconColor: '#38bdf8',
+        link: 'https://github.com/KimDohwan24/LostArkSearch',
+        highlights: [
+            '검색 중심의 화면 흐름을 고려한 UI 구성',
+            '사용자가 필요한 정보를 빠르게 찾을 수 있도록 데이터 탐색 경험 개선',
+            '프론트엔드 구조를 직접 설계하며 화면 구성과 상호작용 구현'
+        ]
+    },
+    {
         title: 'HotDealAPI - 실시간 핫딜 이벤트 시스템',
+        status: '프로젝트 완료',
         description:
             '실시간 핫딜 이벤트 관리 및 주문 처리를 위한 백엔드 시스템입니다. 도메인 주도 설계(DDD)를 기반으로 하여 복잡한 비즈니스 로직을 명확하게 분리하였고, Redisson 분산 락을 활용하여 동시성 상황에서도 정확한 재고 관리를 구현했습니다. 또한 WebSocket을 이용해 실시간 알림 기능을 제공하며, Saga 패턴으로 도메인 간 데이터 일관성을 보장했습니다.',
         tags: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'Redis', 'MySQL', 'Redisson', 'WebSocket', 'JWT', 'Docker'],
@@ -77,58 +104,19 @@ export const projects = [
         ]
     },
     {
-        title: 'E-commerce Platform',
+        title: 'paw-go',
+        status: '프로젝트 진행 중',
         description:
-            'Next.js와 TypeScript 기반의 고성능 쇼핑몰 플랫폼. 결제 시스템 연동 및 사용자 대시보드 구현.',
-        tags: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe'],
-        iconName: 'Monitor',
-        iconColor: '#8b5cf6',
-        link: '#',
-    },
-    {
-        title: 'AI Dashboard API',
-        description:
-            '실시간 데이터 시각화 및 AI 분석 결과를 제공하는 RESTful API 서비스.',
-        tags: ['Node.js', 'Express', 'Python', 'Redis'],
-        iconName: 'Terminal',
-        iconColor: '#ec4899',
-        link: '#',
-    },
-    {
-        title: 'Design System Library',
-        description:
-            '사내 다수 프로젝트에서 공통으로 사용되는 웹 UI 컴포넌트 모음.',
-        tags: ['React', 'Storybook', 'Framer Motion'],
-        iconName: 'LayoutTemplate',
-        iconColor: '#6366f1',
-        link: '#',
-    },
-    {
-        title: 'Cloud Native Blog',
-        description:
-            'Markdown 기반 정적 블로그 시스템. SSG로 빌드되어 CDN에 배포.',
-        tags: ['Gatsby', 'GraphQL', 'MDX', 'Netlify'],
-        iconName: 'Globe',
-        iconColor: '#22d3ee',
-        link: '#',
-    },
-    {
-        title: 'Task Management App',
-        description:
-            '팀 협업을 위한 칸반 보드 기반 프로젝트 관리 앱. 실시간 알림 지원.',
-        tags: ['React', 'Socket.io', 'MongoDB', 'Docker'],
-        iconName: 'Server',
-        iconColor: '#f59e0b',
-        link: '#',
-    },
-    {
-        title: 'Health Tracker Mobile',
-        description:
-            '건강 데이터 추적 및 시각화를 위한 크로스플랫폼 모바일 앱.',
-        tags: ['React Native', 'Firebase', 'Chart.js'],
-        iconName: 'Smartphone',
-        iconColor: '#10b981',
-        link: '#',
+            '반려동물 서비스를 위한 협업 프로젝트입니다. 팀 단위로 기능을 분담해 서비스를 함께 개발하고 있으며, 실제 운영을 고려한 구조 설계와 협업 흐름에 맞춘 개발 경험을 쌓고 있습니다.',
+        tags: ['TypeScript', 'React', 'NestJS', '협업 프로젝트'],
+        iconName: 'Users',
+        iconColor: '#a78bfa',
+        link: 'https://github.com/paw-go',
+        highlights: [
+            '조직 레포지토리 기반으로 프론트엔드와 백엔드를 분리해 협업 진행',
+            '기능 구현뿐 아니라 브랜치 전략과 역할 분담을 포함한 팀 협업 경험 축적',
+            '실서비스를 고려한 구조와 개발 프로세스를 함께 정리하며 프로젝트 진행'
+        ]
     },
 ];
 
