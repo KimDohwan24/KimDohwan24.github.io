@@ -51,7 +51,7 @@ export const skills = [
 export const projects = [
     {
         title: '같이먹자 (Eat_Together)',
-        status: '프로젝트 완료',
+        status: '완료',
         description:
             '1인 가구의 배달비 부담 문제를 해결하는 지역 기반 공동 주문 플랫폼입니다. 유저 관리 시스템과 Prometheus/Grafana 기반의 모니터링 시스템 구축을 담당했습니다. 대규모 트래픽 상황에서 발생하는 DB 커넥션 풀 고갈 문제를 Redis 캐싱 도입을 통해 해결하여 에러율을 31%에서 0%로 개선한 경험이 있습니다.',
         tags: ['Spring Boot', 'Java', 'Redis', 'Kafka', 'MySQL', 'Docker', 'Prometheus', 'Grafana', 'ELK Stack'],
@@ -68,7 +68,7 @@ export const projects = [
     },
     {
         title: 'LostArkSearch',
-        status: '프로젝트 진행 중',
+        status: '진행중',
         description:
             '로스트아크 관련 정보를 빠르게 탐색할 수 있도록 구성한 검색 프로젝트입니다. 원하는 정보를 직관적으로 찾을 수 있는 흐름에 집중하며, 검색 중심 UI와 데이터 표시 구조를 직접 구현했습니다.',
         tags: ['React', 'Vite', 'JavaScript', 'CSS'],
@@ -83,7 +83,7 @@ export const projects = [
     },
     {
         title: 'HotDealAPI - 실시간 핫딜 이벤트 시스템',
-        status: '프로젝트 완료',
+        status: '완료',
         description:
             '실시간 핫딜 이벤트 관리 및 주문 처리를 위한 백엔드 시스템입니다. 도메인 주도 설계(DDD)를 기반으로 하여 복잡한 비즈니스 로직을 명확하게 분리하였고, Redisson 분산 락을 활용하여 동시성 상황에서도 정확한 재고 관리를 구현했습니다. 또한 WebSocket을 이용해 실시간 알림 기능을 제공하며, Saga 패턴으로 도메인 간 데이터 일관성을 보장했습니다.',
         tags: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'Redis', 'MySQL', 'Redisson', 'WebSocket', 'JWT', 'Docker'],
@@ -100,7 +100,7 @@ export const projects = [
     },
     {
         title: 'paw-go',
-        status: '프로젝트 진행 중',
+        status: '진행중',
         description:
             '반려동물 서비스를 위한 협업 프로젝트입니다. 팀 단위로 기능을 분담해 서비스를 함께 개발하고 있으며, 실제 운영을 고려한 구조 설계와 협업 흐름에 맞춘 개발 경험을 쌓고 있습니다.',
         tags: ['TypeScript', 'React', 'NestJS', '협업 프로젝트'],
