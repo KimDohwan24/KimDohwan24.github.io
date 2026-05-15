@@ -16,7 +16,6 @@ export default function Projects() {
         moved: false,
         pointerId: null,
     });
-    const suppressClickRef = useRef(false);
     const sortedProjects = [...projects].sort((a, b) => {
         const aInProgress = a.status === '진행중';
         const bInProgress = b.status === '진행중';
@@ -44,9 +43,7 @@ export default function Projects() {
     };
 
     const handleSelectProject = (project, event) => {
-        if (suppressClickRef.current) {
-            suppressClickRef.current = false;
-            event.preventDefault();
+        if (dragStateRef.current.moved) {
             return;
         }
 
@@ -72,7 +69,6 @@ export default function Projects() {
             pointerId: event.pointerId,
         };
 
-        sliderRef.current.setPointerCapture?.(event.pointerId);
         setIsDraggingSlider(true);
     };
 
@@ -83,9 +79,11 @@ export default function Projects() {
 
         const deltaX = event.clientX - dragStateRef.current.startX;
 
-        if (Math.abs(deltaX) > 6) {
+        if (Math.abs(deltaX) > 10) {
+            if (!dragStateRef.current.moved) {
+                sliderRef.current.setPointerCapture?.(dragStateRef.current.pointerId);
+            }
             dragStateRef.current.moved = true;
-            suppressClickRef.current = true;
         }
 
         if (!dragStateRef.current.moved) {
