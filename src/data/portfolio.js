@@ -1,4 +1,4 @@
-import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingCart, Users } from 'lucide-react';
+import { Terminal, Monitor, LayoutTemplate, Server, Globe, Smartphone, ShoppingCart, Users, TrendingUp } from 'lucide-react';
 
 export const personalInfo = {
     name: 'DoHwan',
@@ -22,6 +22,7 @@ export const skills = [
             { name: 'React', level: 88 },
             { name: 'TypeScript', level: 78 },
             { name: 'JavaScript', level: 84 },
+            { name: 'Next.js', level: 80 },
         ],
     },
     {
@@ -33,6 +34,8 @@ export const skills = [
             { name: 'NestJS', level: 76 },
             { name: 'Redis', level: 82 },
             { name: 'Swagger', level: 70 },
+            { name: 'FastAPI', level: 78 },
+            { name: 'Python', level: 75 },
         ],
     },
     {
@@ -113,6 +116,22 @@ export const projects = [
             '실서비스를 고려한 구조와 개발 프로세스를 함께 정리하며 프로젝트 진행'
         ]
     },
+    {
+        title: 'StockAI - AI 뉴스 기반 주식 추천 서비스',
+        status: '진행중',
+        description:
+            'AI 기술을 활용하여 실시간 뉴스를 분석하고, 사용자의 투자 성향에 맞춰 맞춤형 주식 종목을 추천하는 서비스입니다. Next.js, Spring Boot, FastAPI의 멀티 티어 아키텍처를 기반으로 설계되었으며, 대용량 뉴스 데이터의 실시간 처리와 정교한 감성 분석 기능을 제공합니다.',
+        tags: ['Next.js', 'Spring Boot', 'FastAPI', 'PostgreSQL', 'Redis', 'PyTorch', 'HuggingFace', 'KIS API'],
+        iconName: 'TrendingUp',
+        iconColor: '#10b981',
+        link: 'https://github.com/KimDohwan24/StockAI',
+        highlights: [
+            'Next.js, Spring Boot, FastAPI를 활용한 고가용성 3-Tier 아키텍처 설계 및 구현',
+            'HuggingFace NLP 모델을 연동한 실시간 뉴스 감성 분석 엔진 구축',
+            '한국투자증권(KIS) Open API 연동을 통한 실시간 시세 및 거래 데이터 처리',
+            'Redis 캐싱을 적용한 실시간 분석 데이터 제공 성능 최적화'
+        ]
+    },
 ];
 
 export const iconMap = {
@@ -124,6 +143,7 @@ export const iconMap = {
     Smartphone,
     ShoppingCart,
     Users,
+    TrendingUp,
 };
 
 export const experiences = [
