@@ -176,6 +176,7 @@
     line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -205,6 +206,7 @@
 .project-detail-description {
     margin: 0;
     line-height: 1.7;
+    white-space: pre-line;
 }
 
 .project-highlights {

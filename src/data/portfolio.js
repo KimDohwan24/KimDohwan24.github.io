@@ -118,15 +118,17 @@ export const projects = [
     },
     {
         title: 'StockAI - AI 뉴스 기반 주식 추천 서비스',
-        status: '진행중',
+        status: '완료',
         description:
-            'AI 기술을 활용하여 실시간 뉴스를 분석하고, 사용자의 투자 성향에 맞춰 맞춤형 주식 종목을 추천하는 서비스입니다. Next.js, Spring Boot, FastAPI의 멀티 티어 아키텍처를 기반으로 설계되었으며, 대용량 뉴스 데이터의 실시간 처리와 정교한 감성 분석 기능을 제공합니다.',
+            'AI 기술을 활용하여 실시간 뉴스를 분석하고, 사용자의 투자 성향에 맞춰 맞춤형 주식 종목을 추천하는 서비스입니다. Next.js, Spring Boot, FastAPI의 멀티 티어 아키텍처를 기반으로 설계되었습니다. 특히 서로 다른 투자 성향을 가진 6개의 AI 캐릭터들이 매일 스스로 실시간 뉴스를 분석하고 모의 투자를 수행하며 경쟁하는 시스템이 구축되어 있습니다.\n\n[테스트 계정]\n• 이메일: admin@stockai.com\n• 비밀번호: stockai123!',
         tags: ['Next.js', 'Spring Boot', 'FastAPI', 'PostgreSQL', 'Redis', 'PyTorch', 'HuggingFace', 'KIS API'],
         iconName: 'TrendingUp',
         iconColor: '#10b981',
         link: 'https://github.com/KimDohwan24/StockAI',
+        demoLink: 'https://majestic-latrine-aspirin.ngrok-free.dev',
         highlights: [
             'Next.js, Spring Boot, FastAPI를 활용한 고가용성 3-Tier 아키텍처 설계 및 구현',
+            '서로 다른 투자 성향을 가진 6개의 AI 캐릭터들의 실시간 모의 투자 경쟁 시스템 구축',
             'HuggingFace NLP 모델을 연동한 실시간 뉴스 감성 분석 엔진 구축',
             '한국투자증권(KIS) Open API 연동을 통한 실시간 시세 및 거래 데이터 처리',
             'Redis 캐싱을 적용한 실시간 분석 데이터 제공 성능 최적화'
