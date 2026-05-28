@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, FolderOpen, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, FolderOpen, X, Globe } from 'lucide-react';
 import { projects, iconMap } from '../data/portfolio';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import SectionHeader from './ui/SectionHeader';
@@ -214,6 +214,17 @@ export default function Projects() {
                                         <ExternalLink size={16} />
                                         GitHub
                                     </a>
+                                    {selectedProject.demoLink && (
+                                        <a
+                                            href={selectedProject.demoLink}
+                                            className="btn btn-outline btn-sm"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Globe size={16} />
+                                            데모 사이트
+                                        </a>
+                                    )}
                                     {selectedProject.projectPage && (
                                         <a
                                             href={selectedProject.projectPage}
