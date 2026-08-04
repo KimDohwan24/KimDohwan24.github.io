@@ -28,6 +28,7 @@ export default function Projects() {
     });
     const [selectedProject, setSelectedProject] = useState(sortedProjects[0] ?? null);
     const [isDraggingSlider, setIsDraggingSlider] = useState(false);
+    const [activeImageIndex, setActiveImageIndex] = useState(0);
 
     const scrollProjects = (direction) => {
         if (!sliderRef.current) {
@@ -48,6 +49,7 @@ export default function Projects() {
         }
 
         setSelectedProject(project);
+        setActiveImageIndex(0);
 
         event.currentTarget.closest('.project-tile')?.scrollIntoView({
             behavior: 'smooth',
@@ -242,6 +244,26 @@ export default function Projects() {
                                     </button>
                                 </div>
                             </div>
+
+                            {selectedProject.images && selectedProject.images.length > 0 && (
+                                <div className="project-image-gallery">
+                                    <div className="project-image-main">
+                                        <img src={selectedProject.images[activeImageIndex]} alt={`${selectedProject.title} screenshot`} />
+                                    </div>
+                                    <div className="project-image-thumbnails">
+                                        {selectedProject.images.map((img, idx) => (
+                                            <button 
+                                                key={idx} 
+                                                type="button" 
+                                                className={`thumbnail-btn ${activeImageIndex === idx ? 'active' : ''}`}
+                                                onClick={() => setActiveImageIndex(idx)}
+                                            >
+                                                <img src={img} alt={`Thumbnail ${idx + 1}`} />
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
 
                             <p className="project-detail-description">{selectedProject.description}</p>
 
