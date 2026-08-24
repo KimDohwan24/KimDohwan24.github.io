@@ -20,7 +20,6 @@ export default function Navbar() {
         { href: '#skills', label: 'Skills' },
         { href: '#projects', label: 'Projects' },
         { href: '#experience', label: 'Experience' },
-        { href: '#contact', label: 'Contact' },
         { href: personalInfo.blog || '#', label: 'Blog', isExternal: true },
     ];
 
