@@ -31,8 +31,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
       <About />
+      <Hero />
       <Skills />
       <Projects />
       <Experience />

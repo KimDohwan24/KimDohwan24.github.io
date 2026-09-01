@@ -10,7 +10,7 @@ export default function About() {
     const totalSkills = skills.reduce((total, category) => total + category.items.length, 0);
 
     return (
-        <section className="section" id="about" ref={ref}>
+        <section className="section about-section" id="about" ref={ref}>
             <div className="container">
                 <div className={`about-wrapper ${isVisible ? 'reveal' : ''}`}>
                     <SectionHeader subtitle="About Me" title="근거 있는 설계와 검증으로 서비스의 신뢰를 높입니다" />

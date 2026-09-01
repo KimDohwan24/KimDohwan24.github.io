@@ -1,3 +1,7 @@
+.about-section {
+    padding-top: calc(5.5rem + 30px);
+}
+
 .about-wrapper {
     opacity: 0;
     transform: translateY(30px);
