@@ -13,10 +13,10 @@ trigger: always_on
 ## 2. Git 및 버전 관리 (Version Control)
 - **사용자 정보:** 시스템 전역(`git config --global`)에 설정된 Username과 Email을 그대로 사용하십시오.
 
-### 2.1 브랜치 전략 (Branching Strategy)
+### 2.1 브랜치 및 푸시 규칙 (Branching & Push Rules)
 - **1인 개발 간소화 전략 (Solo Dev Flow):**
   - 모든 기능 개발, 버그 수정, 스타일 개선 작업은 **`dev` 브랜치에서 직접 작업 및 커밋**합니다.
-  - 커밋 후 `dev` 브랜치로 **바로 Push**합니다.
+  - **푸시(Push) 제한:** 사용자가 명시적으로 `push`를 진행하라고 지시하기 전까지는 **절대로 임의로 원격 저장소에 Push하지 마십시오.** (로컬 커밋까지만 수행)
   - 실제 배포가 필요한 시점에만 `dev` 브랜치를 `main` 브랜치로 병합(Merge)합니다.
 
 ### 2.2 커밋 메시지 (Commit Messages)
