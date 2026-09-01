@@ -9,7 +9,7 @@ export default function Hero() {
         <section className="hero" id="hero">
             <div className="container hero-content">
                 <span className="hero-subtitle animate-slide-up">{personalInfo.role}</span>
-                <h1 className="animate-slide-up delay-100 gradient-text">
+                <h1 className="animate-slide-up delay-100">
                     {heroTitleLines.map((line, index) => (
                         <span key={`${line}-${index}`}>
                             {line}
@@ -33,10 +33,6 @@ export default function Hero() {
                     </a>
                 </div>
             </div>
-
-            {/* Background Orbs */}
-            <div className="hero-orb hero-orb--1" aria-hidden="true" />
-            <div className="hero-orb hero-orb--2" aria-hidden="true" />
         </section>
     );
 }

@@ -25,11 +25,11 @@
 }
 
 .about-avatar {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
-    border: 2px solid var(--border-glass);
+    background: var(--bg-glass-hover);
+    border: 1px solid var(--border-glass);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,8 +42,8 @@
 }
 
 .about-desc p {
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    line-height: 1.75;
+    margin-bottom: 1.75rem;
     white-space: pre-line;
 }
 
@@ -53,17 +53,14 @@
 }
 
 .stat {
-    text-align: center;
+    text-align: left;
 }
 
 .stat-number {
     display: block;
     font-size: 2rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-main);
 }
 
 .stat-label {

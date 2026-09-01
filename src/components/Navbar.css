@@ -3,11 +3,9 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
+    height: 64px;
     background: var(--navbar-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--border-glass);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -16,7 +14,7 @@
 
 .navbar--scrolled {
     background: var(--navbar-bg-strong);
-    border-bottom-color: var(--border-glass);
+    border-bottom-color: var(--border-glass-strong);
 }
 
 .nav-container {
@@ -28,40 +26,24 @@
 
 .nav-logo {
     font-weight: 700;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
+    font-size: 1.15rem;
+    color: var(--text-main);
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.75rem;
 }
 
 .nav-links a {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-muted);
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
-    transition: width 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--text-main);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    color: var(--accent-1);
 }
 
 /* Mobile toggle */
@@ -78,28 +60,26 @@
 .nav-mobile {
     display: none;
     position: fixed;
-    top: 70px;
+    top: 64px;
     left: 0;
     right: 0;
     background: var(--navbar-mobile-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-glass);
     padding: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition: max-height 0.3s ease;
 }
 
 .nav-mobile--open {
-    max-height: 400px;
-    padding: 1.5rem 0;
+    max-height: 350px;
+    padding: 1rem 0;
 }
 
 .nav-mobile a {
     display: block;
     padding: 0.75rem 2rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
     transition: var(--transition);
 }

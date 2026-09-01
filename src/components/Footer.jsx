@@ -24,7 +24,7 @@ export default function Footer() {
         try {
             await navigator.clipboard.writeText(personalInfo.email);
             setIsCopied(true);
-        } catch (error) {
+        } catch {
             window.alert('이메일 복사에 실패했습니다. 잠시 후 다시 시도해 주세요.');
         }
     };

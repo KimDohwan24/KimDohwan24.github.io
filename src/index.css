@@ -1,32 +1,27 @@
 /* ===========================================
-   Global Styles & Design Tokens
+   Global Styles & Design Tokens (Clean Solid)
    =========================================== */
 
 :root {
-  --bg-color: #050505;
-  --bg-glass: rgba(255, 255, 255, 0.03);
-  --bg-glass-hover: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --border-glass-strong: rgba(255, 255, 255, 0.18);
-  --text-main: #fcfcfc;
-  --text-muted: #a1a1aa;
-  --page-glow-1: rgba(99, 102, 241, 0.08);
-  --page-glow-2: rgba(236, 72, 153, 0.08);
-  --navbar-bg: rgba(5, 5, 5, 0.5);
-  --navbar-bg-strong: rgba(5, 5, 5, 0.85);
-  --navbar-mobile-bg: rgba(5, 5, 5, 0.95);
-  --fab-bg: rgba(15, 23, 42, 0.72);
-  --fab-bg-hover: rgba(30, 41, 59, 0.88);
+  --bg-color: #0b0f19;
+  --bg-glass: #111827;
+  --bg-glass-hover: #172033;
+  --border-glass: #1f293d;
+  --border-glass-strong: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --navbar-bg: rgba(11, 15, 25, 0.92);
+  --navbar-bg-strong: rgba(11, 15, 25, 0.98);
+  --navbar-mobile-bg: #111827;
+  --fab-bg: #1e293b;
+  --fab-bg-hover: #334155;
 
-  --accent-1: #6366f1;
-  /* Indigo */
-  --accent-2: #8b5cf6;
-  /* Violet */
-  --accent-3: #ec4899;
-  /* Pink */
+  --accent-1: #3b82f6;
+  --accent-2: #2563eb;
+  --accent-3: #1d4ed8;
 
-  --font-sans: 'Inter', 'Noto Sans KR', sans-serif;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-sans: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.2s ease;
 }
 
 /* Reset */
@@ -43,34 +38,33 @@ html {
   background-color: var(--bg-color);
   color: var(--text-main);
   scroll-behavior: smooth;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 body {
   overflow-x: hidden;
-  background-image:
-    radial-gradient(circle at 15% 50%, var(--page-glow-1), transparent 25%),
-    radial-gradient(circle at 85% 30%, var(--page-glow-2), transparent 25%);
-  background-attachment: fixed;
+  background-color: var(--bg-color);
   color: var(--text-main);
-  transition: background-color 0.3s ease, background-image 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 :root[data-theme='light'] {
-  --bg-color: #f6f8fc;
-  --bg-glass: rgba(255, 255, 255, 0.68);
-  --bg-glass-hover: rgba(255, 255, 255, 0.92);
-  --border-glass: rgba(99, 102, 241, 0.12);
-  --border-glass-strong: rgba(99, 102, 241, 0.22);
-  --text-main: #111827;
-  --text-muted: #4b5563;
-  --page-glow-1: rgba(99, 102, 241, 0.12);
-  --page-glow-2: rgba(236, 72, 153, 0.1);
-  --navbar-bg: rgba(246, 248, 252, 0.68);
-  --navbar-bg-strong: rgba(246, 248, 252, 0.92);
-  --navbar-mobile-bg: rgba(246, 248, 252, 0.96);
-  --fab-bg: rgba(255, 255, 255, 0.86);
-  --fab-bg-hover: rgba(255, 255, 255, 0.98);
+  --bg-color: #f8fafc;
+  --bg-glass: #ffffff;
+  --bg-glass-hover: #f1f5f9;
+  --border-glass: #e2e8f0;
+  --border-glass-strong: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --navbar-bg: rgba(248, 250, 252, 0.92);
+  --navbar-bg-strong: rgba(248, 250, 252, 0.98);
+  --navbar-mobile-bg: #ffffff;
+  --fab-bg: #ffffff;
+  --fab-bg-hover: #f1f5f9;
+
+  --accent-1: #2563eb;
+  --accent-2: #1d4ed8;
+  --accent-3: #1e40af;
 }
 
 a {
@@ -86,33 +80,33 @@ ul {
    Typography
    =========================================== */
 h1 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  color: var(--text-main);
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 2.125rem;
   font-weight: 700;
   margin-bottom: 2rem;
+  color: var(--text-main);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
+  color: var(--text-main);
 }
 
 p {
   color: var(--text-muted);
-  font-size: 1.125rem;
+  font-size: 1.05rem;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-main);
   display: inline-block;
 }
 
@@ -126,7 +120,8 @@ p {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border-glass);
 }
 
 /* ===========================================
@@ -135,7 +130,7 @@ p {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   to {
@@ -146,7 +141,7 @@ p {
 
 .animate-slide-up {
   opacity: 0;
-  animation: slideUp 0.8s ease-out forwards;
+  animation: slideUp 0.6s ease-out forwards;
 }
 
 .delay-100 {
@@ -169,25 +164,24 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 9999px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
   cursor: pointer;
   transition: var(--transition);
   font-family: var(--font-sans);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  color: white;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  background: var(--accent-1);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
-  transform: translateY(-2px);
+  background: var(--accent-2);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -198,7 +192,8 @@ p {
 
 .btn-secondary:hover {
   background: var(--bg-glass-hover);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--border-glass-strong);
+  transform: translateY(-1px);
 }
 
 /* ===========================================
@@ -206,11 +201,11 @@ p {
    =========================================== */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   .section {

@@ -10,12 +10,10 @@ trigger: always_on
 - **사용자 정보:** 시스템 전역(`git config --global`)에 설정된 Username과 Email을 그대로 사용하십시오.
 
 ### 2.1 브랜치 전략 (Branching Strategy)
-- **Github Flow 준수:**
-  - 절대로 `main` 브랜치에 직접 커밋(Commit)하지 마십시오.
-  - 작업 유형에 따라 적절한 접두사를 가진 새 브랜치를 생성하여 작업하십시오.
-    - 예: `feat/login-page`, `fix/navbar-bug`, `chore/setup-docker`
-  - **병합(Merge) 규칙:** 브랜치 병합 시 반드시 **Squash Merge**를 사용하십시오. 작업 브랜치의 커밋을 하나로 합쳐서 병합 이력을 단순하게 유지합니다.
-    - 명령어 예시: `git checkout main && git merge --squash feature-branch && git commit`
+- **1인 개발 간소화 전략 (Solo Dev Flow):**
+  - 모든 기능 개발, 버그 수정, 스타일 개선 작업은 **`dev` 브랜치에서 직접 작업 및 커밋**합니다.
+  - 커밋 후 `dev` 브랜치로 **바로 Push**합니다.
+  - 실제 배포가 필요한 시점에만 `dev` 브랜치를 `main` 브랜치로 병합(Merge)합니다.
 
 ### 2.2 커밋 메시지 (Commit Messages)
 - **언어:** 커밋 메시지는 **한국어**로 작성하십시오.

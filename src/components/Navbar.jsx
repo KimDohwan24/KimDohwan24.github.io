@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
             <div className="container nav-container">
-                <a href="#" className="nav-logo gradient-text">
+                <a href="#" className="nav-logo">
                     {personalInfo.name}
                 </a>
 
