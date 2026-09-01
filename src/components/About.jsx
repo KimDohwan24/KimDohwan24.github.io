@@ -13,7 +13,7 @@ export default function About() {
         <section className="section" id="about" ref={ref}>
             <div className="container">
                 <div className={`about-wrapper ${isVisible ? 'reveal' : ''}`}>
-                    <SectionHeader subtitle="About Me" title="변화 속에서 더 나은 경험을 만듭니다!" />
+                    <SectionHeader subtitle="About Me" title="근거 있는 설계와 검증으로 서비스의 신뢰를 높입니다" />
 
                     <div className="about-grid">
                         {/* Profile Card */}
