@@ -1,15 +1,40 @@
 import { useState } from 'react';
 import { Github, ExternalLink, FileText, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
 import { projects } from '../data/portfolio';
+import ImageViewer from './ImageViewer';
 import './Projects.css';
 
 export default function Projects() {
     const [expandedImages, setExpandedImages] = useState({});
+    const [viewerState, setViewerState] = useState({
+        isOpen: false,
+        projectTitle: '',
+        images: [],
+        initialIndex: 0,
+        triggerElement: null,
+    });
 
     const toggleImages = (index) => {
         setExpandedImages((prev) => ({
             ...prev,
             [index]: !prev[index],
+        }));
+    };
+
+    const openViewer = (projectTitle, images, initialIndex, triggerElement) => {
+        setViewerState({
+            isOpen: true,
+            projectTitle,
+            images,
+            initialIndex,
+            triggerElement,
+        });
+    };
+
+    const closeViewer = () => {
+        setViewerState((prev) => ({
+            ...prev,
+            isOpen: false,
         }));
     };
 
@@ -43,6 +68,13 @@ export default function Projects() {
                                             )}
                                         </div>
                                         <h3 className="project-title">{project.title}</h3>
+                                        {(project.period || project.role) && (
+                                            <div className="card-submeta">
+                                                {project.period && <span className="meta-period">{project.period}</span>}
+                                                {project.period && project.role && <span className="meta-divider">·</span>}
+                                                {project.role && <span className="meta-role">{project.role}</span>}
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="project-links">
@@ -130,13 +162,20 @@ export default function Projects() {
                                         >
                                             {isImagesOpen &&
                                                 project.images.map((imgSrc, imgIdx) => (
-                                                    <a
+                                                    <button
                                                         key={imgIdx}
-                                                        href={imgSrc}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="screenshot-thumb-link"
-                                                        title={`스크린샷 ${imgIdx + 1} 원본 보기 (새 창 열림)`}
+                                                        type="button"
+                                                        className="screenshot-thumb-btn"
+                                                        onClick={(e) =>
+                                                            openViewer(
+                                                                project.title,
+                                                                project.images,
+                                                                imgIdx,
+                                                                e.currentTarget
+                                                            )
+                                                        }
+                                                        aria-label={`${project.title} 스크린샷 ${imgIdx + 1} 확대 보기`}
+                                                        title="클릭하여 화면 크게 보기"
                                                     >
                                                         <img
                                                             src={imgSrc}
@@ -144,10 +183,15 @@ export default function Projects() {
                                                             loading="lazy"
                                                             className="screenshot-thumb"
                                                         />
-                                                    </a>
+                                                    </button>
                                                 ))}
                                         </div>
                                     </div>
+                                )}
+
+                                {/* Project Note */}
+                                {project.note && (
+                                    <p className="project-note">※ {project.note}</p>
                                 )}
 
                                 {/* Tags */}
@@ -165,6 +209,18 @@ export default function Projects() {
                     })}
                 </div>
             </div>
+
+            {/* In-page Screen Viewer Modal */}
+            {viewerState.isOpen && (
+                <ImageViewer
+                    key={`${viewerState.projectTitle}-${viewerState.initialIndex}`}
+                    projectTitle={viewerState.projectTitle}
+                    images={viewerState.images}
+                    initialIndex={viewerState.initialIndex}
+                    triggerElement={viewerState.triggerElement}
+                    onClose={closeViewer}
+                />
+            )}
         </section>
     );
 }
