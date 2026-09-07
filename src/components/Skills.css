@@ -1,25 +1,42 @@
-.skills-wrapper {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.skills-wrapper.reveal {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
-.skill-category {
-    margin-bottom: 1.25rem;
-    font-size: 1.05rem;
-    color: var(--text-main);
+.skill-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: border-color var(--transition);
+    overflow-wrap: break-word;
+    word-break: keep-all;
+}
+
+.skill-card:hover {
+    border-color: var(--border-strong);
+}
+
+.skill-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.skill-category-title {
+    font-size: 1.15rem;
     font-weight: 700;
+    color: var(--text-primary);
+}
+
+.skill-category-desc {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
 
 .skill-badges {
@@ -29,18 +46,35 @@
 }
 
 .skill-badge {
-    padding: 0.45rem 0.9rem;
-    background: var(--bg-glass-hover);
-    border: 1px solid var(--border-glass);
-    border-radius: 6px;
-    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    background-color: var(--bg-muted);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.825rem;
     font-weight: 500;
-    color: var(--text-muted);
-    transition: all 0.2s ease;
-    cursor: default;
+    color: var(--text-secondary);
+    transition: color var(--transition), border-color var(--transition);
 }
 
 .skill-badge:hover {
-    color: var(--text-main);
-    border-color: var(--border-glass-strong);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+
+/* Responsive down to 320px */
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .skill-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card {
+        padding: 1rem;
+    }
 }

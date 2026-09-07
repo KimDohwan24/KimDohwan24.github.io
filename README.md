@@ -1,16 +1,42 @@
-# React + Vite
+# 김도환 · 백엔드 개발자 포트폴리오
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+문제 해결 과정과 성과를 중심으로 정리한 React + Vite 포트폴리오입니다.
 
-Currently, two official plugins are available:
+- 소개 → 프로젝트 → 경력 및 교육 → 기술 스택 → 연락처
+- 라이트 테마 기본, 다크 테마 선택 및 저장
+- 데스크톱 2열 / 모바일 1열 프로젝트 목록
+- 키보드 탐색, 본문 바로가기, 모션 감소 설정 지원
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 로컬 실행
 
-## React Compiler
+Node.js 20.19+ 또는 22.12+ 및 pnpm이 필요합니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+pnpm install --frozen-lockfile
+pnpm dev --host 127.0.0.1
+```
 
-## Expanding the ESLint configuration
+## 검증
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+pnpm lint
+pnpm build
+pnpm preview --host 127.0.0.1
+```
+
+화면 확인 시 320px·390px 모바일과 데스크톱에서 가로 넘침, 메뉴 열기/닫기, 테마 전환, 이메일 복사, 프로젝트 링크 및 스크린샷을 확인합니다.
+
+## 콘텐츠 수정
+
+- `src/data/portfolio.js`: 소개, 프로젝트, 성과, 경력, 기술 목록
+- `src/components/`: 각 섹션의 마크업과 스타일
+- `src/index.css`: 색상, 타이포그래피, 공통 레이아웃
+- `public/images/stockai/`: 프로젝트 스크린샷 원본
+- `index.html`: 페이지 제목과 검색 설명
+
+성과 수치는 기존 포트폴리오 자료를 보존한 것입니다. 수정 시 측정 조건과 근거를 확인하고, 확인되지 않은 경력이나 기술을 추가하지 않습니다.
+
+## 배포
+
+`main` 브랜치에 push하면 GitHub Actions가 빌드하여 GitHub Pages에 배포합니다.
+**로컬 작업·빌드만으로는 공개 사이트가 변경되지 않습니다.** 저장소 규칙에 따라 사용자의 명시적인 push 요청이 있을 때만 원격으로 전송합니다.

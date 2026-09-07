@@ -1,53 +1,55 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Skills from './components/Skills';
 import Footer from './components/Footer';
 import './App.css';
 
 const THEME_STORAGE_KEY = 'portfolio-theme';
 
-function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-
-    if (savedTheme === 'light') {
-      return false;
+function getInitialTheme() {
+    try {
+        const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+            return savedTheme;
+        }
+    } catch {
+        // Storage access blocked or restricted (e.g. private browsing)
     }
+    // Default: Light Theme
+    return 'light';
+}
 
-    return true;
-  });
+function App() {
+    const [theme, setTheme] = useState(getInitialTheme);
 
-  useEffect(() => {
-    const nextTheme = isDarkMode ? 'dark' : 'light';
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        try {
+            window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+        } catch {
+            // Storage write restricted or quota exceeded
+        }
+    }, [theme]);
 
-    document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-  }, [isDarkMode]);
+    const handleToggleTheme = () => {
+        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    };
 
-  return (
-    <>
-      <Navbar />
-      <About />
-      <Hero />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Footer />
-      <button
-        type="button"
-        className="theme-fab"
-        onClick={() => setIsDarkMode((current) => !current)}
-        aria-label={isDarkMode ? '다크모드 비활성화' : '다크모드 활성화'}
-        title={isDarkMode ? '다크모드 비활성화' : '다크모드 활성화'}
-      >
-        {isDarkMode ? '라이트 모드' : '다크 모드'}
-      </button>
-    </>
-  );
+    return (
+        <div className="site-layout">
+            <Navbar theme={theme} onToggleTheme={handleToggleTheme} />
+            <main id="main-content" tabIndex={-1}>
+                <Hero />
+                <Projects />
+                <Experience />
+                <Skills />
+            </main>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

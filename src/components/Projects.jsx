@@ -1,289 +1,168 @@
-import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, FolderOpen, X, Globe } from 'lucide-react';
-import { projects, iconMap } from '../data/portfolio';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import SectionHeader from './ui/SectionHeader';
-import GlassCard from './ui/GlassCard';
+import { useState } from 'react';
+import { Github, ExternalLink, FileText, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
+import { projects } from '../data/portfolio';
 import './Projects.css';
 
 export default function Projects() {
-    const { ref, isVisible } = useScrollReveal();
-    const sliderRef = useRef(null);
-    const dragStateRef = useRef({
-        isDragging: false,
-        startX: 0,
-        startScrollLeft: 0,
-        moved: false,
-        pointerId: null,
-    });
-    const sortedProjects = [...projects].sort((a, b) => {
-        const aInProgress = a.status === '진행중';
-        const bInProgress = b.status === '진행중';
+    const [expandedImages, setExpandedImages] = useState({});
 
-        if (aInProgress === bInProgress) {
-            return 0;
-        }
-
-        return aInProgress ? 1 : -1;
-    });
-    const [selectedProject, setSelectedProject] = useState(sortedProjects[0] ?? null);
-    const [isDraggingSlider, setIsDraggingSlider] = useState(false);
-    const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-    const scrollProjects = (direction) => {
-        if (!sliderRef.current) {
-            return;
-        }
-
-        const scrollAmount = sliderRef.current.clientWidth * 0.72 * direction;
-
-        sliderRef.current.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth',
-        });
-    };
-
-    const handleSelectProject = (project, event) => {
-        if (dragStateRef.current.moved) {
-            return;
-        }
-
-        setSelectedProject(project);
-        setActiveImageIndex(0);
-
-        event.currentTarget.closest('.project-tile')?.scrollIntoView({
-            behavior: 'smooth',
-            inline: 'center',
-            block: 'nearest',
-        });
-    };
-
-    const handlePointerDown = (event) => {
-        if (!sliderRef.current || (event.pointerType === 'mouse' && event.button !== 0)) {
-            return;
-        }
-
-        dragStateRef.current = {
-            isDragging: true,
-            startX: event.clientX,
-            startScrollLeft: sliderRef.current.scrollLeft,
-            moved: false,
-            pointerId: event.pointerId,
-        };
-
-        setIsDraggingSlider(true);
-    };
-
-    const handlePointerMove = (event) => {
-        if (!sliderRef.current || !dragStateRef.current.isDragging) {
-            return;
-        }
-
-        const deltaX = event.clientX - dragStateRef.current.startX;
-
-        if (Math.abs(deltaX) > 10) {
-            if (!dragStateRef.current.moved) {
-                sliderRef.current.setPointerCapture?.(dragStateRef.current.pointerId);
-            }
-            dragStateRef.current.moved = true;
-        }
-
-        if (!dragStateRef.current.moved) {
-            return;
-        }
-
-        sliderRef.current.scrollLeft = dragStateRef.current.startScrollLeft - deltaX;
-    };
-
-    const endDragging = () => {
-        dragStateRef.current.isDragging = false;
-        dragStateRef.current.pointerId = null;
-        setIsDraggingSlider(false);
-    };
-
-    const handlePointerUp = (event) => {
-        if (dragStateRef.current.pointerId !== event.pointerId) {
-            return;
-        }
-
-        sliderRef.current?.releasePointerCapture?.(event.pointerId);
-        endDragging();
-    };
-
-    const handlePointerCancel = (event) => {
-        if (dragStateRef.current.pointerId !== event.pointerId) {
-            return;
-        }
-
-        sliderRef.current?.releasePointerCapture?.(event.pointerId);
-        endDragging();
+    const toggleImages = (index) => {
+        setExpandedImages((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
     };
 
     return (
-        <section className="section" id="projects" ref={ref}>
+        <section className="section" id="projects" aria-labelledby="projects-title">
             <div className="container">
-                <div className={`projects-wrapper ${isVisible ? 'reveal' : ''}`}>
-                    <SectionHeader subtitle="Portfolio" title="주요 프로젝트" />
+                <div className="section-header">
+                    <h2 id="projects-title" className="section-title">
+                        주요 프로젝트
+                    </h2>
+                    <p className="section-subtitle">
+                        문제 정의부터 성능 병목 해소, 정량적 성과 검증까지의 엔지니어링 기록입니다.
+                    </p>
+                </div>
 
-                    <div className="projects-section-header">
-                        <h3>프로젝트 목록</h3>
-                        <span>프로젝트가 추가되면 오른쪽으로 이어서 표시됩니다</span>
-                    </div>
+                <div className="projects-grid">
+                    {projects.map((project, index) => {
+                        const hasImages = project.images && project.images.length > 0;
+                        const isImagesOpen = Boolean(expandedImages[index]);
+                        const galleryId = `project-gallery-${index}`;
 
-                    <div className="projects-slider-shell">
-                        <button
-                            type="button"
-                            className="projects-slider-button projects-slider-button-left"
-                            onClick={() => scrollProjects(-1)}
-                            aria-label="이전 프로젝트 보기"
-                        >
-                            <ChevronLeft size={18} />
-                        </button>
+                        return (
+                            <article key={project.title} className="project-card">
+                                {/* Card Top: Status, Summary, Title, Links */}
+                                <div className="card-top">
+                                    <div className="card-heading">
+                                        <div className="card-meta">
+                                            <span className="status-badge">{project.status}</span>
+                                            {project.summary && (
+                                                <span className="project-summary-text">{project.summary}</span>
+                                            )}
+                                        </div>
+                                        <h3 className="project-title">{project.title}</h3>
+                                    </div>
 
-                        <div
-                            className={`projects-slider ${isDraggingSlider ? 'is-dragging' : ''}`}
-                            ref={sliderRef}
-                            role="list"
-                            aria-label="프로젝트 목록"
-                            onPointerDown={handlePointerDown}
-                            onPointerMove={handlePointerMove}
-                            onPointerUp={handlePointerUp}
-                            onPointerCancel={handlePointerCancel}
-                        >
-                            {sortedProjects.slice(0, 16).map((project, index) => {
-                                const Icon = iconMap[project.iconName];
-                                const isSelected = selectedProject?.title === project.title;
+                                    <div className="project-links">
+                                        {project.link && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn btn-secondary btn-sm"
+                                                aria-label={`${project.title} GitHub 저장소 (새 창 열림)`}
+                                            >
+                                                <Github size={14} aria-hidden="true" />
+                                                <span>GitHub</span>
+                                                <ExternalLink size={12} aria-hidden="true" />
+                                            </a>
+                                        )}
+                                        {project.projectPage && (
+                                            <a
+                                                href={project.projectPage}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn btn-secondary btn-sm"
+                                                aria-label={`${project.title} 정리 문서 (새 창 열림)`}
+                                            >
+                                                <FileText size={14} aria-hidden="true" />
+                                                <span>문서</span>
+                                                <ExternalLink size={12} aria-hidden="true" />
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
 
-                            return (
-                                <GlassCard
-                                    key={project.title}
-                                    className={`project-tile ${isSelected ? 'is-selected' : ''}`}
-                                    delay={index * 80}
-                                    >
+                                {/* Key Metric (Single Blue Point Accent - Clean text, no box) */}
+                                {project.metric && (
+                                    <div className="metric-row">
+                                        <span className="metric-label">핵심 성과</span>
+                                        <span className="metric-value">{project.metric}</span>
+                                    </div>
+                                )}
+
+                                {/* Problem & Solution (Clean text flow - No outer box background/border) */}
+                                <div className="project-flow">
+                                    <p className="flow-item">
+                                        <strong className="flow-label">문제:</strong> {project.problem}
+                                    </p>
+                                    <p className="flow-item">
+                                        <strong className="flow-label">해결:</strong> {project.solution}
+                                    </p>
+                                </div>
+
+                                {/* Highlights list */}
+                                {project.highlights && project.highlights.length > 0 && (
+                                    <div className="card-highlights">
+                                        <ul className="highlights-list">
+                                            {project.highlights.map((highlight, hIdx) => (
+                                                <li key={hIdx} className="highlight-item">
+                                                    {highlight}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {/* Collapsible Screenshots (Target always in DOM for aria-controls) */}
+                                {hasImages && (
+                                    <div className="project-images-section">
                                         <button
                                             type="button"
-                                            className="project-tile-button"
-                                            onClick={(event) => handleSelectProject(project, event)}
-                                            aria-pressed={isSelected}
+                                            className="images-toggle-btn"
+                                            onClick={() => toggleImages(index)}
+                                            aria-expanded={isImagesOpen}
+                                            aria-controls={galleryId}
                                         >
-                                            <div className="project-tile-top">
-                                            <div className="project-icon-wrap">
-                                                    {Icon && <Icon size={24} color={project.iconColor} />}
-                                                </div>
-                                                {project.status && (
-                                                    <span
-                                                        className={`project-status ${project.status === '진행중' ? 'project-status-in-progress' : ''}`}
-                                                    >
-                                                        {project.status}
-                                                    </span>
-                                                )}
-                                            </div>
-
-                                            <div className="project-tile-body">
-                                                <h3>{project.title}</h3>
-                                                <p className="project-desc">{project.description}</p>
-                                            </div>
-
-                                            <div className="project-tile-footer">
-                                                <span className="project-tile-action">클릭해서 자세히 보기</span>
-                                            </div>
+                                            <ImageIcon size={15} aria-hidden="true" />
+                                            <span>
+                                                {isImagesOpen ? '스크린샷 접기' : `실행 화면 (${project.images.length}장) 보기`}
+                                            </span>
+                                            {isImagesOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
                                         </button>
-                                    </GlassCard>
-                                );
-                            })}
-                        </div>
 
-                        <button
-                            type="button"
-                            className="projects-slider-button projects-slider-button-right"
-                            onClick={() => scrollProjects(1)}
-                            aria-label="다음 프로젝트 보기"
-                        >
-                            <ChevronRight size={18} />
-                        </button>
-                    </div>
-
-                    {selectedProject && (
-                        <GlassCard className="project-detail-card">
-                            <div className="project-detail-toolbar">
-                                <div>
-                                    <p className="project-detail-label">선택한 프로젝트</p>
-                                    <h3>{selectedProject.title}</h3>
-                                </div>
-
-                                <div className="project-links">
-                                    <a href={selectedProject.link} className="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-                                        <ExternalLink size={16} />
-                                        GitHub
-                                    </a>
-                                    {selectedProject.demoLink && (
-                                        <a
-                                            href={selectedProject.demoLink}
-                                            className="btn btn-outline btn-sm"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <div
+                                            id={galleryId}
+                                            className="screenshots-gallery"
+                                            hidden={!isImagesOpen}
                                         >
-                                            <Globe size={16} />
-                                            데모 사이트
-                                        </a>
-                                    )}
-                                    {selectedProject.projectPage && (
-                                        <a
-                                            href={selectedProject.projectPage}
-                                            className="btn btn-outline btn-sm"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <FolderOpen size={16} />
-                                            프로젝트 페이지
-                                        </a>
-                                    )}
-                                    <button type="button" className="btn btn-outline btn-sm" onClick={() => setSelectedProject(null)}>
-                                        <X size={16} />
-                                        닫기
-                                    </button>
-                                </div>
-                            </div>
-
-                            {selectedProject.images && selectedProject.images.length > 0 && (
-                                <div className="project-image-gallery">
-                                    <div className="project-image-main">
-                                        <img src={selectedProject.images[activeImageIndex]} alt={`${selectedProject.title} screenshot`} />
+                                            {isImagesOpen &&
+                                                project.images.map((imgSrc, imgIdx) => (
+                                                    <a
+                                                        key={imgIdx}
+                                                        href={imgSrc}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="screenshot-thumb-link"
+                                                        title={`스크린샷 ${imgIdx + 1} 원본 보기 (새 창 열림)`}
+                                                    >
+                                                        <img
+                                                            src={imgSrc}
+                                                            alt={`${project.title} 스크린샷 ${imgIdx + 1}`}
+                                                            loading="lazy"
+                                                            className="screenshot-thumb"
+                                                        />
+                                                    </a>
+                                                ))}
+                                        </div>
                                     </div>
-                                    <div className="project-image-thumbnails">
-                                        {selectedProject.images.map((img, idx) => (
-                                            <button 
-                                                key={idx} 
-                                                type="button" 
-                                                className={`thumbnail-btn ${activeImageIndex === idx ? 'active' : ''}`}
-                                                onClick={() => setActiveImageIndex(idx)}
-                                            >
-                                                <img src={img} alt={`Thumbnail ${idx + 1}`} />
-                                            </button>
+                                )}
+
+                                {/* Tags */}
+                                {project.tags && project.tags.length > 0 && (
+                                    <div className="card-tags">
+                                        {project.tags.map((tag) => (
+                                            <span key={tag} className="tag-pill">
+                                                {tag}
+                                            </span>
                                         ))}
                                     </div>
-                                </div>
-                            )}
-
-                            <p className="project-detail-description">{selectedProject.description}</p>
-
-                            {selectedProject.highlights && (
-                                <ul className="project-highlights">
-                                    {selectedProject.highlights.map((highlight, idx) => (
-                                        <li key={idx}>{highlight}</li>
-                                    ))}
-                                </ul>
-                            )}
-
-                            <div className="project-tags">
-                                {selectedProject.tags.map((tag) => (
-                                    <span key={tag} className="project-tag">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </GlassCard>
-                    )}
+                                )}
+                            </article>
+                        );
+                    })}
                 </div>
             </div>
         </section>
