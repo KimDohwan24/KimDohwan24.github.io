@@ -115,9 +115,9 @@
 }
 
 .block-title {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    color: var(--text-muted);
+    color: var(--text-primary);
     letter-spacing: -0.01em;
     margin: 0;
 }
@@ -261,6 +261,7 @@
     margin: 0;
     word-break: keep-all;
     overflow-wrap: break-word;
+    margin-top: auto;
 }
 
 /* Card Tags */
@@ -270,6 +271,11 @@
     gap: 0.35rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+.project-note + .card-tags {
+    margin-top: 0;
 }
 
 /* Responsive down to 320px */

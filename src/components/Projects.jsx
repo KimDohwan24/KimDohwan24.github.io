@@ -107,14 +107,6 @@ export default function Projects() {
                                     </div>
                                 </div>
 
-                                {/* Key Metric (Single Blue Point Accent - Clean text, no box) */}
-                                {project.metric && (
-                                    <div className="metric-row">
-                                        <span className="metric-label">핵심 성과</span>
-                                        <span className="metric-value">{project.metric}</span>
-                                    </div>
-                                )}
-
                                 {/* Service Overview & Features */}
                                 {(project.description || (project.features && project.features.length > 0)) && (
                                     <div className="project-block">
@@ -145,6 +137,14 @@ export default function Projects() {
                                             <strong className="flow-label">해결:</strong> {project.solution}
                                         </p>
                                     </div>
+
+                                    {/* Key Metric (Single Blue Point Accent - Clean text, no box) */}
+                                    {project.metric && (
+                                        <div className="metric-row">
+                                            <span className="metric-label">핵심 성과</span>
+                                            <span className="metric-value">{project.metric}</span>
+                                        </div>
+                                    )}
 
                                     {/* Highlights list */}
                                     {project.highlights && project.highlights.length > 0 && (
