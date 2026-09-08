@@ -107,6 +107,43 @@
     color: var(--accent);
 }
 
+/* Project Content Blocks */
+.project-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.block-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.project-desc {
+    font-size: 0.885rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.project-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-left: 1.15rem;
+    list-style-type: disc;
+    margin: 0;
+}
+
+.feature-item {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
 /* Problem & Solution (Clean flow, completely flat, no outer box/border/bg) */
 .project-flow {
     display: flex;
@@ -128,18 +165,13 @@
 }
 
 /* Highlights */
-.card-highlights {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
 .highlights-list {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
     padding-left: 1.15rem;
     list-style-type: disc;
+    margin-top: 0.25rem;
 }
 
 .highlight-item {

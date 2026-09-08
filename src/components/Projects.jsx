@@ -115,19 +115,39 @@ export default function Projects() {
                                     </div>
                                 )}
 
-                                {/* Problem & Solution (Clean text flow - No outer box background/border) */}
-                                <div className="project-flow">
-                                    <p className="flow-item">
-                                        <strong className="flow-label">문제:</strong> {project.problem}
-                                    </p>
-                                    <p className="flow-item">
-                                        <strong className="flow-label">해결:</strong> {project.solution}
-                                    </p>
-                                </div>
+                                {/* Service Overview & Features */}
+                                {(project.description || (project.features && project.features.length > 0)) && (
+                                    <div className="project-block">
+                                        <h4 className="block-title">서비스 소개 및 주요 기능</h4>
+                                        {project.description && (
+                                            <p className="project-desc">{project.description}</p>
+                                        )}
+                                        {project.features && project.features.length > 0 && (
+                                            <ul className="project-feature-list">
+                                                {project.features.map((feat, fIdx) => (
+                                                    <li key={fIdx} className="feature-item">
+                                                        {feat}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                )}
 
-                                {/* Highlights list */}
-                                {project.highlights && project.highlights.length > 0 && (
-                                    <div className="card-highlights">
+                                {/* Technical Problem Solving & Implementation */}
+                                <div className="project-block">
+                                    <h4 className="block-title">기술적 문제 해결 및 구현</h4>
+                                    <div className="project-flow">
+                                        <p className="flow-item">
+                                            <strong className="flow-label">문제:</strong> {project.problem}
+                                        </p>
+                                        <p className="flow-item">
+                                            <strong className="flow-label">해결:</strong> {project.solution}
+                                        </p>
+                                    </div>
+
+                                    {/* Highlights list */}
+                                    {project.highlights && project.highlights.length > 0 && (
                                         <ul className="highlights-list">
                                             {project.highlights.map((highlight, hIdx) => (
                                                 <li key={hIdx} className="highlight-item">
@@ -135,8 +155,8 @@ export default function Projects() {
                                                 </li>
                                             ))}
                                         </ul>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
 
                                 {/* Collapsible Screenshots (Target always in DOM for aria-controls) */}
                                 {hasImages && (
