@@ -28,10 +28,20 @@
   transition: transform var(--transition), background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
+.chat-fab svg {
+  display: block;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
 .chat-fab:hover {
   transform: translateY(-2px);
   background-color: var(--accent-hover);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.chat-fab:hover svg {
+  transform: scale(1.06);
 }
 
 .chat-fab:focus-visible {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Bot, Sparkles } from 'lucide-react';
+import { MessageSquareMore, X, Send, Bot, Sparkles } from 'lucide-react';
 import './ChatWidget.css';
 
 export default function ChatWidget() {
@@ -111,7 +111,7 @@ export default function ChatWidget() {
         </section>
       )}
 
-      {/* 챗봇 플로팅 버튼 (FAB) */}
+      {/* 챗봇 플로팅 버튼 (FAB) - 반듯하고 세련된 대칭형 말풍선 아이콘 적용 */}
       <button
         ref={fabRef}
         type="button"
@@ -123,7 +123,7 @@ export default function ChatWidget() {
         aria-label={isOpen ? '챗봇 대화창 닫기' : '챗봇 열기'}
         title={isOpen ? '챗봇 대화창 닫기' : '챗봇 열기'}
       >
-        {isOpen ? <X size={22} /> : <MessageCircle size={22} />}
+        {isOpen ? <X size={22} strokeWidth={2.2} /> : <MessageSquareMore size={23} strokeWidth={2.1} />}
       </button>
     </div>
   );

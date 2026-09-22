@@ -4,9 +4,9 @@ export const personalInfo = {
     email: 'ehghks18@gmail.com',
     github: 'https://github.com/KimDohwan24',
     blog: 'https://kimdohwan24.github.io/TIL',
-    heroTitle: `문제에 맞는 해결책을 찾고,
-결과로 검증합니다.`,
-    heroDescription: '서비스의 병목을 분석하고, 부하 테스트로 개선을 검증하는 백엔드 개발자 김도환입니다. 성능과 장애 상황을 함께 고려하며 안정적인 서비스를 만듭니다.',
+    heroTitle: `잘 작동하는 서비스를 넘어,
+오래 신뢰할 수 있는 서비스를 만듭니다.`,
+    heroDescription: '데이터베이스와 인프라까지 살피며 문제의 원인을 구조적으로 해결하고, 결과를 지표로 검증하는 백엔드 개발자 김도환입니다.',
 };
 
 export const skills = [
@@ -62,6 +62,7 @@ export const projects = [
         solution: 'JPA의 복잡한 연관관계 오버헤드를 줄이고 Bulk Insert를 적용해 등록 성능을 93% 개선했습니다. Redisson 분산 락으로 동시 구매 요청을 제어하고 Saga 패턴으로 결제 실패 시 보상 트랜잭션을 구현했습니다.',
         tags: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'Redis', 'Redisson', 'MySQL', 'WebSocket', 'JWT', 'Docker'],
         link: 'https://github.com/LJY981008/HotDealAPI',
+        projectPage: 'https://app.notion.com/p/teamsparta/10-2292dc3ef5148058bb6ef42216d70e92',
         highlights: [
             '대량 데이터 저장 시 직접 쿼리를 다루는 Bulk Insert를 적용해 이벤트 등록 속도를 93% 단축했습니다.',
             'Redisson 분산 락으로 초과 판매를 방지하고, Saga 패턴 기반 보상 트랜잭션으로 분산 환경의 데이터 정합성을 확보했습니다.',
@@ -99,7 +100,7 @@ export const projects = [
     {
         title: 'FIREGUARD',
         summary: 'CCTV 기반 화재 탐지·지능형 관제 서비스',
-        period: '2026.08.03–2026.08.28',
+        period: '2026.08.07–2026.08.27',
         role: '6인 팀 · 팀장 · 프론트엔드 단독 구현',
         description: '도로 및 도심 CCTV 영상을 실시간 분석하여 화재·연기를 조기 감지하고, 관제사의 신속한 상황 판단과 소방서 출동을 돕는 통합 화재 관제 웹 플랫폼입니다.',
         features: [
@@ -126,25 +127,6 @@ export const projects = [
             '6인 팀의 팀장으로서 WBS·역할 분담·통합 일정을 조율하며 탐지부터 관제, 모의 신고까지의 전체 서비스 흐름 관리',
             'React·Vite 기반의 인증·권한·세션 관리, 운영 대시보드, GIS 관제 및 상세 모달 등 프론트엔드 전체 화면 단독 구현',
             'Leaflet GIS 맵, ITS CCTV OpenAPI, HLS 실시간 스트림을 결합하고 백엔드 영상 테스트·모의 119 신고 API 통합',
-        ],
-    },
-    {
-        title: 'paw-go',
-        summary: '반려동물 돌봄 매칭 플랫폼',
-        description: '반려동물 보호자와 전문 도우미를 연결하여 맞춤형 돌봄 예약과 일정을 관리할 수 있는 팀 협업 웹 서비스입니다.',
-        features: [
-            '돌봄 예약 신청 및 일정 상태 관리',
-            '돌봄 진행 상황 및 실시간 사용자 알림 전송',
-        ],
-        status: '진행중',
-        metric: null,
-        problem: '프론트엔드와 백엔드가 동시에 개발할 때 명세 불일치와 데이터 오류를 줄여야 했습니다.',
-        solution: 'Swagger로 API 명세를 먼저 정의하고, TypeScript와 유효성 검사로 데이터 전달 오류를 예방했습니다. Git Flow 브랜치 전략과 PR 코드 리뷰 문화를 도입했습니다.',
-        tags: ['TypeScript', 'React', 'NestJS', 'Swagger'],
-        link: 'https://github.com/paw-go',
-        highlights: [
-            'Swagger 기반 API 명세 선행 정의 및 DTO 유효성 검사(Validation)로 클라이언트-서버 통신 오류 최소화',
-            'Git Flow와 코드 리뷰를 도입해 코드 충돌을 줄이고 안정적인 협업 과정을 정립했습니다.',
         ],
     },
 ];
