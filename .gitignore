@@ -26,3 +26,7 @@ node_modules
 
 # Scripts
 start.bat
+
+# AI 에이전트 설정 (로컬 전용)
+AGENTS.md
+.agents/

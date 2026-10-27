@@ -1,46 +1,35 @@
 # 김도환 · 백엔드 개발자 포트폴리오
 
-문제 해결 과정과 성과를 중심으로 정리한 React + Vite 포트폴리오입니다.
+> **사이트:** https://kimdohwan24.github.io/
 
-- 소개 → 프로젝트 → 경력 및 교육 → 기술 스택 → 연락처
-- 라이트 테마 기본, 다크 테마 선택 및 저장
-- 데스크톱 2열 / 모바일 1열 프로젝트 목록
-- 키보드 탐색, 본문 바로가기, 모션 감소 설정 지원
-- 페이지 내 이미지 뷰어: 닫기·ESC·배경 클릭으로 복귀, 이전/다음 화면 탐색
+백엔드 개발자 김도환의 포트폴리오 사이트입니다.
+프로젝트마다 어떤 문제가 있었고, 어떻게 해결했고, 결과를 어떻게 확인했는지를 중심으로 정리했습니다.
+
+## 주요 프로젝트
+
+| 프로젝트 | 내용 | 주요 기술 |
+| --- | --- | --- |
+| [같이먹자](https://github.com/hojunyun-dev/Eat_Together) | 공동 배달 주문 플랫폼 · 피크 시간대 요청 실패를 캐싱과 주문/결제 분리로 개선 | Spring Boot, Redis, Kafka, MySQL |
+| [HotDealAPI](https://github.com/LJY981008/HotDealAPI) | 선착순 핫딜 이벤트 시스템 · 동시 구매 시 재고 정합성 확보 | Spring Boot, Redisson, MySQL, WebSocket |
+| [StockAI](https://github.com/KimDohwan24/StockAI) | AI 뉴스 분석 기반 주식 추천·모의투자 · 외부 API 지연과 장애 대응 | Spring Boot, FastAPI, PostgreSQL, Redis |
+| [FIREGUARD](https://github.com/KimDohwan24/Fire_Prevention_and_Detection) | CCTV 기반 화재 탐지·관제 서비스 | React, FastAPI, Leaflet |
+
+각 프로젝트의 상세 내용과 화면은 [사이트](https://kimdohwan24.github.io/)에서 볼 수 있습니다.
+
+## 사이트 구성
+
+- React + Vite로 만든 정적 사이트이며, `main` 브랜치에 push하면 GitHub Actions로 GitHub Pages에 배포됩니다.
+- 라이트/다크 테마, 모바일 대응, 키보드 탐색, 프로젝트 스크린샷 뷰어를 지원합니다.
+- 소개·프로젝트·경력·기술 스택 내용은 `src/data/portfolio.js` 한 곳에서 관리합니다.
 
 ## 로컬 실행
 
-Node.js 20.19+ 또는 22.12+ 및 pnpm이 필요합니다.
-
 ```bash
-pnpm install --frozen-lockfile
-pnpm dev --host 127.0.0.1
+pnpm install
+pnpm dev
 ```
 
-## 검증
+## 연락처
 
-```bash
-pnpm lint
-pnpm build
-pnpm preview --host 127.0.0.1
-```
-
-화면 확인 시 320px·390px 모바일과 데스크톱에서 가로 넘침, 메뉴 열기/닫기, 테마 전환, 이메일 복사, 프로젝트 링크 및 스크린샷을 확인합니다.
-
-## 콘텐츠 수정
-
-- `src/data/portfolio.js`: 소개, 프로젝트, 성과, 경력, 기술 목록
-- `src/components/`: 각 섹션의 마크업과 스타일
-- `src/index.css`: 색상, 타이포그래피, 공통 레이아웃
-- `public/images/stockai/`: StockAI 스크린샷
-- `public/images/fireguard/`: 사용자 제공 `FireGuard_증빙자료` 폴더의 화면 6장
-- `index.html`: 페이지 제목과 검색 설명
-
-FIREGUARD는 사용자 확인에 따라 **6인 팀 · 팀장 · 프론트엔드 단독 구현**으로 표기합니다. 119 연동은 실제 신고가 아닌 프로젝트 검증용 모의 흐름이며, 화면의 샘플 수치를 성능 지표로 사용하지 않습니다.
-
-성과 수치는 기존 포트폴리오 자료를 보존한 것입니다. 수정 시 측정 조건과 근거를 확인하고, 확인되지 않은 경력이나 기술을 추가하지 않습니다.
-
-## 배포
-
-`main` 브랜치에 push하면 GitHub Actions가 빌드하여 GitHub Pages에 배포합니다.
-**로컬 작업·빌드만으로는 공개 사이트가 변경되지 않습니다.** 저장소 규칙에 따라 사용자의 명시적인 push 요청이 있을 때만 원격으로 전송합니다.
+- Email: ehghks18@gmail.com
+- GitHub: https://github.com/KimDohwan24
